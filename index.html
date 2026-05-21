@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-visual">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://res.cloudinary.com https://images.unsplash.com blob:; connect-src 'self' http://127.0.0.1:7849; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Krittiphon Yoonaitham — Illustrator · ABCat Shop</title>
+  <meta name="description" content="Portfolio of Krittiphon Yoonaitham — hand-drawn ink illustration, AI art, and pet products at ABCat Shop.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* === INK THEME — CSS custom properties === */
+    html.dark {
+      --bg: #0d0d0d;
+      --bg-elevated: #161616;
+      --card: #161616;
+      --text: #f5f5f0;
+      --text-muted: #888888;
+      --accent: #1a1a1a;
+      --highlight: #ffffff;
+      --border: rgba(255, 255, 255, 0.12);
+      --shadow-glow: 0 0 24px rgba(255, 255, 255, 0.15);
+      --filter-fill: #f5f5f0;
+      --filter-text: #0d0d0d;
+      --cta-border: #f5f5f0;
+      --cta-fill: #f5f5f0;
+      --cta-text: #0d0d0d;
+      --loader-ink: #f5f5f0;
+      --logo-canvas-filter: invert(1) brightness(1.1) contrast(1.05);
+      --cursor-fill: #f5f5f0;
+      --cursor-ring: #f5f5f0;
+    }
+    html:not(.dark) {
+      --bg: #f5f5f0;
+      --bg-elevated: #ffffff;
+      --card: #ffffff;
+      --text: #0d0d0d;
+      --text-muted: #888888;
+      --accent: #1a1a1a;
+      --highlight: #000000;
+      --border: rgba(0, 0, 0, 0.12);
+      --shadow-glow: 0 0 24px rgba(0, 0, 0, 0.12);
+      --filter-fill: #0d0d0d;
+      --filter-text: #f5f5f0;
+      --cta-border: #0d0d0d;
+      --cta-fill: #0d0d0d;
+      --cta-text: #f5f5f0;
+      --loader-ink: #0d0d0d;
+      --logo-canvas-filter: none;
+      --cursor-fill: #0d0d0d;
+      --cursor-ring: #0d0d0d;
+    }
+
+    :root {
+      --nav-h: 72px;
+      --font-display: "Caveat", cursive;
+      --font-body: "Inter", system-ui, sans-serif;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --max-w: 1280px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+      cursor: none;
+    }
+    body.no-cursor { cursor: auto; }
+    body.is-loading { overflow: hidden; }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; border: none; background: none; color: inherit; cursor: none; }
+    body.no-cursor button { cursor: pointer; }
+    ul { list-style: none; }
+
+    .skip-link {
+      position: absolute; left: -9999px; top: 0; z-index: 10001;
+      padding: 0.75rem 1rem; background: var(--highlight); color: var(--bg);
+    }
+    .skip-link:focus { left: 1rem; top: 1rem; }
+
+    /* === Custom cursor — theme-aware (no mix-blend; visible on light + dark) === */
+    .cursor-ring,
+    .cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 10003;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      will-change: transform;
+      mix-blend-mode: normal;
+      opacity: 1;
+    }
+    .cursor-ring {
+      width: 32px;
+      height: 32px;
+      border: 1.5px solid var(--cursor-ring);
+      background: transparent;
+      transition: width 0.3s var(--ease), height 0.3s var(--ease), border-color 0.3s;
+    }
+    .cursor-ring.is-hover {
+      width: 48px;
+      height: 48px;
+    }
+    .cursor-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--cursor-fill);
+      z-index: 10004;
+    }
+
+    /* === Page loader — SVG ink circle === */
+    .loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .loader__svg { width: 80px; height: 80px; transform: rotate(-90deg); }
+    .loader__circle {
+      fill: none;
+      stroke: var(--loader-ink);
+      stroke-width: 2;
+      stroke-dasharray: 251;
+      stroke-dashoffset: 251;
+      animation: draw-circle 1.4s ease forwards;
+    }
+    @keyframes draw-circle { to { stroke-dashoffset: 0; } }
+    .loader__text {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--text-muted);
+    }
+
+    /* === Navbar === */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: transform 0.5s var(--ease), background 0.4s, border-color 0.4s;
+    }
+    .nav.is-scrolled {
+      background: color-mix(in srgb, var(--bg) 90%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom-color: var(--border);
+    }
+    .nav.is-hidden { transform: translateY(-100%); }
+
+    .nav__logo {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .nav__links { display: flex; gap: 2rem; }
+    .nav__links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      transition: color 0.3s;
+    }
+    .nav__links a:hover { color: var(--text); }
+
+    .nav__actions { display: flex; align-items: center; gap: 0.75rem; }
+    .theme-btn {
+      width: 40px; height: 40px;
+      display: grid; place-items: center;
+      color: var(--text-muted);
+    }
+    .theme-btn svg { width: 18px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+    .theme-btn .icon-sun { display: none; }
+    html:not(.dark) .theme-btn .icon-moon { display: none; }
+    html:not(.dark) .theme-btn .icon-sun { display: block; }
+
+    .hamburger {
+      display: none;
+      width: 40px; height: 40px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+    .hamburger__line {
+      width: 22px; height: 2px;
+      background: var(--text);
+      transform-origin: center;
+    }
+
+    .mobile-nav {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .mobile-nav.is-open { pointer-events: all; }
+    .mobile-nav a {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 8vw, 3.5rem);
+    }
+
+    @media (max-width: 767px) {
+      .nav__links { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* === Hero === */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: calc(var(--nav-h) + 2rem) 1.5rem 4rem;
+      overflow: hidden;
+      text-align: center;
+      gap: 0.5rem;
+    }
+    .hero__logo-stage {
+      position: relative;
+      width: min(640px, 94vw);
+      height: min(480px, 55vh);
+      min-height: 280px;
+      flex-shrink: 0;
+      z-index: 1;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      filter: var(--logo-canvas-filter);
+      pointer-events: auto;
+    }
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      pointer-events: none;
+    }
+    .hero__content a,
+    .hero__content button { pointer-events: auto; }
+    .hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 9vw, 5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+    html.dark .hero__title {
+      color: #f5f5f0;
+      text-shadow: 0 4px 48px rgba(0, 0, 0, 0.85);
+    }
+    html:not(.dark) .hero__title {
+      color: #0d0d0d;
+    }
+    .hero__title .word { display: inline-block; overflow: hidden; }
+    .hero__sub {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+    html.dark .hero__sub { color: #a8a8a0; }
+    html:not(.dark) .hero__sub { color: #666666; }
+    .btn-cta {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      border-radius: 999px;
+      border: 1px solid var(--cta-border);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      transition: background 0.45s var(--ease), color 0.45s var(--ease);
+    }
+    .btn-cta:hover {
+      background: var(--cta-fill);
+      color: var(--cta-text);
+    }
+
+    /* === Sections === */
+    .section {
+      padding: clamp(4rem, 10vw, 7rem) clamp(1.25rem, 4vw, 3rem);
+    }
+    .section__head {
+      margin-bottom: 2.5rem;
+      max-width: var(--max-w);
+      margin-inline: auto;
+    }
+    .section__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 3.75rem);
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    .section__underline {
+      display: block;
+      height: 2px;
+      background: var(--text);
+      margin-top: 0.75rem;
+      max-width: 120px;
+      clip-path: inset(0 100% 0 0);
+    }
+
+    /* === Gallery === */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      max-width: var(--max-w);
+      margin: 0 auto 2.5rem;
+    }
+    .filter-tab {
+      padding: 0.5rem 1.2rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      transition: background 0.35s, color 0.35s;
+    }
+    .filter-tab.is-active {
+      background: var(--filter-fill);
+      color: var(--filter-text);
+      border-color: var(--filter-fill);
+    }
+
+    .masonry {
+      column-count: 1;
+      column-gap: 1.25rem;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    @media (min-width: 768px) { .masonry { column-count: 2; } }
+    @media (min-width: 1280px) { .masonry { column-count: 3; } }
+
+    .card {
+      break-inside: avoid;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--card);
+      contain: layout paint;
+      cursor: none;
+      transition: box-shadow 0.4s, border-color 0.4s;
+      transform-style: preserve-3d;
+    }
+    body.no-cursor .card { cursor: pointer; }
+    .card.is-hidden {
+      opacity: 0; height: 0; margin: 0; overflow: hidden;
+      pointer-events: none; border: none;
+    }
+    .card:hover {
+      border-color: var(--text);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .card__tilt { transform-style: preserve-3d; }
+    .card__media {
+      position: relative;
+      aspect-ratio: 4/5;
+      overflow: hidden;
+      background: var(--bg-elevated);
+    }
+    .card__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease);
+    }
+    .card:hover .card__media img { transform: scale(1.04); }
+
+    .card__overlay {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 1.25rem;
+      background: linear-gradient(transparent, color-mix(in srgb, var(--bg) 95%, transparent));
+      transform: translateY(100%);
+      transition: transform 0.45s var(--ease);
+    }
+    .card:hover .card__overlay { transform: translateY(0); }
+    .card__title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+    .card__cat {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    /* === Gallery pagination === */
+    .gallery-pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      max-width: var(--max-w);
+      margin: 2.5rem auto 0;
+      padding: 0 1.25rem;
+    }
+    .gallery-pagination[hidden] { display: none; }
+    .gallery-pagination__btn {
+      padding: 0.65rem 1.25rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text);
+      transition: background 0.35s, color 0.35s, border-color 0.35s, opacity 0.35s;
+    }
+    .gallery-pagination__btn:hover:not(:disabled) {
+      background: var(--filter-fill);
+      color: var(--filter-text);
+      border-color: var(--filter-fill);
+    }
+    .gallery-pagination__btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+    body.no-cursor .gallery-pagination__btn:disabled { cursor: not-allowed; }
+    body.no-cursor .gallery-pagination__btn:not(:disabled) { cursor: pointer; }
+    .gallery-pagination__info {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      min-width: 7rem;
+      text-align: center;
+    }
+
+    /* === Lightbox === */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(0, 0, 0, 0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.4s, visibility 0.4s;
+    }
+    .lightbox.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+    }
+    .lightbox__img {
+      max-height: 85vh;
+      max-width: min(1000px, 92vw);
+      border-radius: 8px;
+    }
+    .lightbox__cap {
+      color: #f5f5f0;
+      text-align: center;
+      margin-top: 1rem;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+    }
+    .lightbox__btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px; height: 48px;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      font-size: 1.25rem;
+      border-radius: 50%;
+    }
+    .lightbox__prev { left: 1rem; }
+    .lightbox__next { right: 1rem; }
+    .lightbox__close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      color: #fff;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    /* === About — ink texture === */
+    .about {
+      background:
+        radial-gradient(ellipse 80% 50% at 20% 80%, color-mix(in srgb, var(--text) 4%, transparent), transparent),
+        var(--bg);
+    }
+    .about__grid {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .about__grid { grid-template-columns: 1fr 1fr; }
+    }
+    .about__text p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+    .about__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .tag {
+      padding: 0.4rem 0.9rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+    }
+    .about__img-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      aspect-ratio: 4/5;
+    }
+    .about__img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* === Contact === */
+    .contact__wrap {
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact__wrap .section__head { text-align: center; }
+    .contact__wrap .section__underline { margin-inline: auto; }
+
+    .field { margin-bottom: 1.75rem; text-align: left; }
+    .field label {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+    .field input,
+    .field textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 1rem;
+      padding: 0.5rem 0;
+      cursor: auto;
+    }
+    .field input:focus,
+    .field textarea:focus {
+      outline: none;
+      border-bottom-color: var(--text);
+    }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .field.is-invalid input,
+    .field.is-invalid textarea { border-bottom-color: #c44; }
+    .field__err { display: none; font-size: 0.75rem; color: #c44; margin-top: 0.35rem; }
+    .field.is-invalid .field__err { display: block; }
+
+    .btn-send {
+      width: 100%;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      border: 1px solid var(--text);
+      border-radius: 999px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      transition: background 0.45s, color 0.45s;
+    }
+    .btn-send:hover {
+      background: var(--text);
+      color: var(--bg);
+    }
+    .form-msg {
+      display: none;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .form-msg.is-visible { display: block; }
+
+    .social {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .social a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.3s;
+    }
+    .social a:hover { color: var(--text); }
+    .social svg { width: 18px; height: 18px; fill: currentColor; }
+
+    footer {
+      padding: 2rem 1.25rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body class="is-loading no-cursor">
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <svg class="loader__svg" viewBox="0 0 84 84" aria-hidden="true">
+      <circle class="loader__circle" cx="42" cy="42" r="40"/>
+    </svg>
+    <span class="loader__text">ABCat Shop</span>
+  </div>
+
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
+  <header class="nav" id="nav" role="banner">
+    <a href="#hero" class="nav__logo" data-hover>KY</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#work" data-hover>Work</a>
+      <a href="#about" data-hover>About</a>
+      <a href="#contact" data-hover>Contact</a>
+    </nav>
+    <div class="nav__actions">
+      <button type="button" class="theme-btn" id="theme-btn" aria-label="Toggle theme" data-hover>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2"/></svg>
+      </button>
+      <button type="button" class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" data-hover>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+    <a href="#work" class="mobile-link" data-hover>Work</a>
+    <a href="#about" class="mobile-link" data-hover>About</a>
+    <a href="#contact" class="mobile-link" data-hover>Contact</a>
+  </nav>
+
+  <main id="main">
+    <section class="hero" id="hero" aria-label="Introduction">
+      <div class="hero__logo-stage" id="hero-logo-stage">
+        <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      </div>
+      <div class="hero__content">
+        <h1 class="hero__title" id="hero-title">Krittiphon Yoonaitham</h1>
+        <p class="hero__sub">Illustrator &amp; AI Artist · ABCat Shop</p>
+        <a href="#work" class="btn-cta" data-hover>View My Work</a>
+      </div>
+    </section>
+
+    <section class="section gallery" id="work" aria-labelledby="work-title">
+      <header class="section__head reveal-head">
+        <h2 id="work-title" class="section__title">My Work</h2>
+        <span class="section__underline" aria-hidden="true"></span>
+      </header>
+      <div class="filters" role="tablist" aria-label="Filter works">
+        <button type="button" class="filter-tab is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button type="button" class="filter-tab" data-filter="illustration" role="tab" aria-selected="false">Illustration</button>
+        <button type="button" class="filter-tab" data-filter="ai-art" role="tab" aria-selected="false">AI Art</button>
+        <button type="button" class="filter-tab" data-filter="product" role="tab" aria-selected="false">Product Design</button>
+      </div>
+      <div class="masonry" id="gallery" role="list"></div>
+      <nav class="gallery-pagination" id="gallery-pagination" aria-label="Gallery pages" hidden>
+        <button type="button" class="gallery-pagination__btn" id="page-prev" aria-label="Previous page" disabled data-hover>← Previous</button>
+        <span class="gallery-pagination__info" id="page-info" aria-live="polite">Page 1 of 1</span>
+        <button type="button" class="gallery-pagination__btn" id="page-next" aria-label="Next page" data-hover>Next →</button>
+      </nav>
+    </section>
+
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="about__grid">
+        <div class="about__text reveal-block">
+          <header class="section__head">
+            <h2 id="about-title" class="section__title">About Me</h2>
+            <span class="section__underline reveal-head-line" aria-hidden="true"></span>
+          </header>
+          <p>Krittiphon Yoonaitham is a Thai illustrator and the creator of <strong>ABCat Shop</strong>, specializing in hand-drawn ink art, AI-assisted illustration, and pet product design that blends warmth, personality, and craft.</p>
+          <p>From sketchbook characters to product mockups, every piece celebrates the bond between people and their pets.</p>
+          <div class="about__tags">
+            <span class="tag">Illustration</span>
+            <span class="tag">AI Art</span>
+            <span class="tag">Procreate</span>
+            <span class="tag">Photoshop</span>
+            <span class="tag">Product Design</span>
+            <span class="tag">Hand-drawn</span>
+          </div>
+        </div>
+        <div class="about__img-wrap reveal-block" id="about-parallax">
+          <img
+            data-src="https://res.cloudinary.com/dag73dhpl/image/upload/v1779371158/Screenshot_2026-05-21_160521_cvi0gg.jpg"
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3C/svg%3E"
+            alt="ABCat Shop ink logo"
+            width="600"
+            height="750"
+            class="lazy-img"
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact__wrap reveal-block">
+        <header class="section__head">
+          <h2 id="contact-title" class="section__title">Get in Touch</h2>
+          <span class="section__underline reveal-head-line" aria-hidden="true"></span>
+        </header>
+        <form id="contact-form" novalidate>
+          <div class="field" data-field="name">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" maxlength="80" required>
+            <span class="field__err" role="alert">Enter a valid name.</span>
+          </div>
+          <div class="field" data-field="email">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" maxlength="120" required>
+            <span class="field__err" role="alert">Enter a valid email.</span>
+          </div>
+          <div class="field" data-field="message">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" maxlength="2000" required></textarea>
+            <span class="field__err" role="alert">Message must be 10–2000 characters.</span>
+          </div>
+          <button type="submit" class="btn-send" data-hover>Send Message</button>
+          <p class="form-msg" id="form-msg" role="status">Thank you — message received (demo).</p>
+        </form>
+        <div class="social">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" data-hover>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c2.7 0 3 .01 4.04.06 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.05 1.05.06 1.34.06 4.04s-.01 3-.06 4.04c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.05.05-1.34.06-4.04.06s-3-.01-4.04-.06-1.17-.05-1.8-.25-2.23-.41a6 6 0 0 1-1.38-.9 6 6 0 0 1-.9-1.38 6 6 0 0 1-.41-2.23C2.01 15.04 2 14.7 2 12s.01-3.04.06-4.12c.05-1.08.24-1.83.51-2.48.27-.68.64-1.25 1.21-1.82.57-.57 1.14-.94 1.82-1.21.65-.27 1.4-.46 2.48-.51C8.96.01 9.3 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 0 0-2.88 0 1.44 1.44 0 0 0 2.88 0z"/></svg>
+            Instagram
+          </a>
+          <a href="https://behance.net" target="_blank" rel="noopener noreferrer" data-hover>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6h5.1c1.6 0 2.7.9 2.7 2.4 0 1-.6 1.7-1.4 2 1.1.3 1.9 1.2 1.9 2.6 0 1.8-1.3 3-3.4 3H6.5V6zm2.2 3.6h2.5c.7 0 1.1-.4 1.1-1s-.4-1-1.1-1H8.7v2zm0 4.2h2.9c.8 0 1.3-.4 1.3-1.1 0-.7-.5-1.1-1.3-1.1H8.7v2.2zM17.5 10.2h-4.8v1.2h4.7c0 .9-.6 1.4-1.5 1.4-.9 0-1.5-.5-1.6-1.4h-2.3c.2 2.2 1.7 3.4 3.9 3.4 2.4 0 3.9-1.4 3.9-3.6 0-2.5-1.5-3.7-4.3-3.7v-.3zm-1.2-4.2h4.1V5h-4.1v1z"/></svg>
+            Behance
+          </a>
+          <a href="mailto:hello@abcat.shop" data-hover>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> Krittiphon Yoonaitham · ABCat Shop</footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Artwork" hidden>
+    <button type="button" class="lightbox__close" id="lb-close" aria-label="Close">×</button>
+    <button type="button" class="lightbox__btn lightbox__prev" id="lb-prev" aria-label="Previous">←</button>
+    <button type="button" class="lightbox__btn lightbox__next" id="lb-next" aria-label="Next">→</button>
+    <img class="lightbox__img" id="lb-img" src="" alt="">
+    <p class="lightbox__cap" id="lb-cap"></p>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+  (function () {
+    'use strict';
+
+    /* === ARTWORK — edit here === */
+    const ABCAT_LOGO_URL = 'https://res.cloudinary.com/dag73dhpl/image/upload/v1779371158/Screenshot_2026-05-21_160521_cvi0gg.jpg';
+
+    /* Items per page — pagination appears when filtered count exceeds this */
+    const ITEMS_PER_PAGE = 6;
+
+    const ARTWORK = [
+      { src: 'images/work1.jpg', title: 'Pet Rainwear Collection', category: 'ai-art' },
+      { src: ABCAT_LOGO_URL, title: 'ABCat Logo Design', category: 'illustration' },
+      { src: 'images/work3.jpg', title: 'Product Mockup', category: 'product' },
+      { src: 'images/work4.jpg', title: 'Character Series', category: 'illustration' },
+      { src: 'images/work5.jpg', title: 'AI Portrait Study', category: 'ai-art' },
+      { src: 'images/work6.jpg', title: 'Brand Identity Kit', category: 'product' },
+      { src: 'images/work7.jpg', title: 'Ink Sketchbook', category: 'illustration' },
+      { src: 'images/work8.jpg', title: 'Pet Portrait AI', category: 'ai-art' },
+      { src: 'images/work9.jpg', title: 'Bandana Collection', category: 'product' }
+    ];
+
+    const PLACEHOLDERS = [
+      'https://images.unsplash.com/photo-1574158622682-e40e69881006?w=700&q=85',
+      ABCAT_LOGO_URL,
+      'https://images.unsplash.com/photo-1514881248725-9da16422666f?w=700&q=85',
+      'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=700&q=85',
+      'https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?w=700&q=85',
+      'https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=700&q=85',
+      'https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=700&q=85',
+      'https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=700&q=85',
+      'https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=700&q=85'
+    ];
+
+    const EASE = 'power2.out';
+    const DUR = 0.6;
+    const LOADER_MS = 2000;
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    let activeFilter = 'all';
+    let currentPage = 1;
+    let lbIndex = 0;
+    let logoGroup = null;
+    let threePaused = false;
+    let mouseX = 0;
+    let mouseY = 0;
+    let cardST = [];
+
+    document.getElementById('year').textContent = String(new Date().getFullYear());
+
+    /* #region agent log */
+    function dbg(loc, msg, data, hid) {
+      fetch('http://127.0.0.1:7849/ingest/eba1649e-eb87-4f7a-b8e5-f1f8555e30ac', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': '05a1fd' },
+        body: JSON.stringify({
+          sessionId: '05a1fd',
+          location: loc,
+          message: msg,
+          data: data || {},
+          hypothesisId: hid,
+          timestamp: Date.now(),
+          runId: 'initial'
+        })
+      }).catch(function () {});
+    }
+    dbg('index.html:boot', 'Page script started', {
+      three: typeof THREE !== 'undefined',
+      gsap: typeof gsap !== 'undefined',
+      scrollTrigger: typeof ScrollTrigger !== 'undefined'
+    }, 'C');
+    /* #endregion */
+
+    function debounce(fn, ms) {
+      var t;
+      return function () {
+        var a = arguments, c = this;
+        clearTimeout(t);
+        t = setTimeout(function () { fn.apply(c, a); }, ms);
+      };
+    }
+
+    function escapeHtml(s) {
+      if (typeof s !== 'string') return '';
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+    function sanitizeInput(s, max) {
+      if (typeof s !== 'string') return '';
+      return s.replace(/<[^>]*>/g, '').replace(/[<>'"&]/g, '').trim().slice(0, max || 500);
+    }
+    function validName(n) { return /^[\p{L}\s'.-]{2,80}$/u.test(n); }
+    function validEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e) && e.length <= 120; }
+
+    function catLabel(c) {
+      return { illustration: 'Illustration', 'ai-art': 'AI Art', product: 'Product Design' }[c] || c;
+    }
+
+    /* === Theme (class dark on html) === */
+    var root = document.documentElement;
+    try {
+      var saved = localStorage.getItem('ky-theme');
+      if (saved === 'light') root.classList.remove('dark');
+      else if (saved === 'dark') root.classList.add('dark');
+    } catch (e) { /* ignore */ }
+
+    document.getElementById('theme-btn').addEventListener('click', function () {
+      root.classList.toggle('dark');
+      var mode = root.classList.contains('dark') ? 'dark' : 'light';
+      try { localStorage.setItem('ky-theme', mode); } catch (e) { /* ignore */ }
+      syncCursorTheme();
+      /* #region agent log */
+      dbg('index.html:theme', 'Theme toggled', { mode: mode }, 'E');
+      /* #endregion */
+    });
+
+    /* === Custom cursor === */
+    var ring = document.getElementById('cursor-ring');
+    var dot = document.getElementById('cursor-dot');
+    var cx = 0, cy = 0, rx = 0, ry = 0, dx = 0, dy = 0;
+
+    function syncCursorTheme() {
+      var dark = root.classList.contains('dark');
+      var fill = dark ? '#f5f5f0' : '#0d0d0d';
+      ring.style.borderColor = fill;
+      dot.style.background = fill;
+      /* #region agent log */
+      dbg('index.html:cursor', 'Cursor theme synced', { dark: dark, fill: fill }, 'G');
+      /* #endregion */
+    }
+
+    function setupCursor() {
+      if (isTouch || window.innerWidth < 1024) {
+        document.body.classList.add('no-cursor');
+        ring.style.display = dot.style.display = 'none';
+        return;
+      }
+      document.body.classList.remove('no-cursor');
+      ring.style.display = dot.style.display = 'block';
+      syncCursorTheme();
+    }
+    setupCursor();
+
+    document.querySelectorAll('[data-hover]').forEach(function (el) {
+      el.addEventListener('mouseenter', function () { ring.classList.add('is-hover'); });
+      el.addEventListener('mouseleave', function () { ring.classList.remove('is-hover'); });
+    });
+    document.addEventListener('mousemove', function (e) {
+      cx = e.clientX; cy = e.clientY;
+      dot.style.left = cx + 'px'; dot.style.top = cy + 'px';
+    });
+    function cursorRAF() {
+      rx += (cx - rx) * 0.12;
+      ry += (cy - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+      requestAnimationFrame(cursorRAF);
+    }
+    cursorRAF();
+    window.addEventListener('resize', debounce(setupCursor, 200));
+
+    /* === Lazy images (IntersectionObserver) === */
+    if ('IntersectionObserver' in window) {
+      var lazyObs = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          var img = en.target;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+          }
+          obs.unobserve(img);
+        });
+      }, { rootMargin: '120px' });
+      document.querySelectorAll('.lazy-img').forEach(function (img) { lazyObs.observe(img); });
+    } else {
+      document.querySelectorAll('.lazy-img').forEach(function (img) {
+        if (img.dataset.src) img.src = img.dataset.src;
+      });
+    }
+
+    /* === Gallery === */
+    var galleryEl = document.getElementById('gallery');
+    var paginationEl = document.getElementById('gallery-pagination');
+    var pagePrevBtn = document.getElementById('page-prev');
+    var pageNextBtn = document.getElementById('page-next');
+    var pageInfoEl = document.getElementById('page-info');
+
+    function bindImg(img, src, i) {
+      img.loading = 'lazy';
+      img.src = src;
+      img.addEventListener('error', function () {
+        img.src = PLACEHOLDERS[i % PLACEHOLDERS.length];
+      }, { once: true });
+    }
+
+    function initTilt(el) {
+      if (!el || isTouch || prefersReduced) return;
+      var rect;
+      el.addEventListener('mouseenter', function () { rect = el.getBoundingClientRect(); });
+      el.addEventListener('mousemove', function (e) {
+        if (!rect) rect = el.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        el.style.transform = 'rotateX(' + (y * -10) + 'deg) rotateY(' + (x * 10) + 'deg)';
+        el.style.willChange = 'transform';
+      });
+      el.addEventListener('mouseleave', function () {
+        el.style.transform = '';
+        el.style.willChange = 'auto';
+      });
+    }
+
+    function createCard(item, i) {
+      var card = document.createElement('article');
+      card.className = 'card';
+      card.dataset.category = item.category;
+      card.dataset.index = String(i);
+
+      var tilt = document.createElement('div');
+      tilt.className = 'card__tilt';
+      var media = document.createElement('div');
+      media.className = 'card__media';
+      var img = document.createElement('img');
+      img.alt = item.title;
+      bindImg(img, item.src, i);
+      var overlay = document.createElement('div');
+      overlay.className = 'card__overlay';
+      var t = document.createElement('div');
+      t.className = 'card__title';
+      t.textContent = item.title;
+      var c = document.createElement('div');
+      c.className = 'card__cat';
+      c.textContent = catLabel(item.category);
+      overlay.appendChild(t);
+      overlay.appendChild(c);
+      media.appendChild(img);
+      media.appendChild(overlay);
+      tilt.appendChild(media);
+      card.appendChild(tilt);
+      initTilt(tilt);
+      card.addEventListener('click', function () { openLb(i); });
+      return card;
+    }
+
+    function filtered() {
+      return ARTWORK.map(function (it, i) {
+        return activeFilter === 'all' || it.category === activeFilter ? i : -1;
+      }).filter(function (i) { return i >= 0; });
+    }
+
+    function totalPages() {
+      var count = filtered().length;
+      return Math.max(1, Math.ceil(count / ITEMS_PER_PAGE));
+    }
+
+    function pageIndices() {
+      var all = filtered();
+      var pages = totalPages();
+      if (currentPage > pages) currentPage = pages;
+      if (currentPage < 1) currentPage = 1;
+      var start = (currentPage - 1) * ITEMS_PER_PAGE;
+      return all.slice(start, start + ITEMS_PER_PAGE);
+    }
+
+    function updatePaginationUI() {
+      var pages = totalPages();
+      var count = filtered().length;
+      var show = count > ITEMS_PER_PAGE;
+
+      paginationEl.hidden = !show;
+      pageInfoEl.textContent = 'Page ' + currentPage + ' of ' + pages;
+      pagePrevBtn.disabled = currentPage <= 1;
+      pageNextBtn.disabled = currentPage >= pages;
+
+      /* #region agent log */
+      dbg('index.html:pagination', 'Pagination UI updated', {
+        currentPage: currentPage,
+        totalPages: pages,
+        itemCount: count,
+        perPage: ITEMS_PER_PAGE,
+        visible: show
+      }, 'F');
+      /* #endregion */
+    }
+
+    function renderGalleryPage() {
+      galleryEl.innerHTML = '';
+      var indices = pageIndices();
+      indices.forEach(function (i) {
+        galleryEl.appendChild(createCard(ARTWORK[i], i));
+      });
+      updatePaginationUI();
+      initCardST();
+    }
+
+    function goToPage(page) {
+      var pages = totalPages();
+      var next = Math.min(Math.max(1, page), pages);
+      if (next === currentPage) return;
+      currentPage = next;
+      renderGalleryPage();
+      var workSection = document.getElementById('work');
+      if (workSection) {
+        workSection.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'start' });
+      }
+    }
+
+    function applyFilter(f) {
+      activeFilter = f;
+      currentPage = 1;
+      document.querySelectorAll('.filter-tab').forEach(function (b) {
+        var on = b.dataset.filter === f;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      renderGalleryPage();
+    }
+
+    document.querySelectorAll('.filter-tab').forEach(function (b) {
+      b.addEventListener('click', function () { applyFilter(b.dataset.filter); });
+    });
+
+    pagePrevBtn.addEventListener('click', function () { goToPage(currentPage - 1); });
+    pageNextBtn.addEventListener('click', function () { goToPage(currentPage + 1); });
+
+    /* === Lightbox === */
+    var lb = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lb-img');
+    var lbCap = document.getElementById('lb-cap');
+
+    function openLb(i) {
+      var list = filtered();
+      var p = list.indexOf(i);
+      if (p < 0) return;
+      lbIndex = p;
+      showLb(list[lbIndex]);
+      lb.classList.add('is-open');
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function showLb(idx) {
+      var it = ARTWORK[idx];
+      lbImg.src = it.src.startsWith('http') ? it.src : PLACEHOLDERS[idx % PLACEHOLDERS.length];
+      lbImg.alt = it.title;
+      lbCap.textContent = it.title + ' · ' + catLabel(it.category);
+    }
+    function closeLb() {
+      lb.classList.remove('is-open');
+      lb.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      lbImg.removeAttribute('src');
+    }
+    function lbNav(d) {
+      var list = filtered();
+      lbIndex = (lbIndex + d + list.length) % list.length;
+      showLb(list[lbIndex]);
+    }
+    document.getElementById('lb-close').addEventListener('click', closeLb);
+    document.getElementById('lb-prev').addEventListener('click', function () { lbNav(-1); });
+    document.getElementById('lb-next').addEventListener('click', function () { lbNav(1); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', function (e) {
+      if (!lb.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') lbNav(-1);
+      if (e.key === 'ArrowRight') lbNav(1);
+    });
+
+    /* === Nav scroll (debounced ~16ms) === */
+    var lastY = 0;
+    var nav = document.getElementById('nav');
+    var scrollTicking = false;
+    function onScroll() {
+      if (scrollTicking) return;
+      scrollTicking = true;
+      requestAnimationFrame(function () {
+        var y = window.scrollY;
+        nav.classList.toggle('is-scrolled', y > 20);
+        if (y > 100) nav.classList.toggle('is-hidden', y > lastY && y > 200);
+        else nav.classList.remove('is-hidden');
+        lastY = y;
+        scrollTicking = false;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* === Mobile menu === */
+    var menuOpen = false;
+    var ham = document.getElementById('hamburger');
+    var mob = document.getElementById('mobile-nav');
+    var lines = ham.querySelectorAll('.hamburger__line');
+
+    function setMenu(open) {
+      menuOpen = open;
+      ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mob.classList.toggle('is-open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+      if (typeof gsap !== 'undefined' && !prefersReduced) {
+        if (open) {
+          gsap.to(mob, { opacity: 1, visibility: 'visible', duration: DUR, ease: EASE });
+          gsap.to(lines[0], { y: 6, rotation: 45, duration: DUR, ease: EASE });
+          gsap.to(lines[1], { opacity: 0, duration: 0.2 });
+          gsap.to(lines[2], { y: -6, rotation: -45, duration: DUR, ease: EASE });
+        } else {
+          gsap.to(mob, { opacity: 0, visibility: 'hidden', duration: DUR, ease: EASE });
+          gsap.to(lines, { y: 0, rotation: 0, opacity: 1, duration: DUR, clearProps: 'all' });
+        }
+      } else {
+        mob.style.opacity = open ? '1' : '0';
+        mob.style.visibility = open ? 'visible' : 'hidden';
+      }
+    }
+    ham.addEventListener('click', function () { setMenu(!menuOpen); });
+    document.querySelectorAll('.mobile-link').forEach(function (a) {
+      a.addEventListener('click', function () { setMenu(false); });
+    });
+
+    /* === Contact === */
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = e.target;
+      var name = sanitizeInput(f.name.value, 80);
+      var email = sanitizeInput(f.email.value, 120);
+      var msg = sanitizeInput(f.message.value, 2000);
+      var ok = true;
+      f.querySelectorAll('.field').forEach(function (el) { el.classList.remove('is-invalid'); });
+      document.getElementById('form-msg').classList.remove('is-visible');
+      if (!validName(name)) { f.querySelector('[data-field="name"]').classList.add('is-invalid'); ok = false; }
+      if (!validEmail(email)) { f.querySelector('[data-field="email"]').classList.add('is-invalid'); ok = false; }
+      if (msg.length < 10) { f.querySelector('[data-field="message"]').classList.add('is-invalid'); ok = false; }
+      if (!ok) return;
+      console.info('Sanitized:', { name: escapeHtml(name), email: escapeHtml(email), message: escapeHtml(msg) });
+      document.getElementById('form-msg').classList.add('is-visible');
+      f.reset();
+    });
+
+    /* === Three.js 3D logo card === */
+    var threeRenderer = null;
+    var threeScene = null;
+    var threeCamera = null;
+    var logoReady = false;
+
+    /** Remove paper-white JPEG background — keeps black ink lines */
+    function stripWhiteBackground(texture) {
+      var img = texture.image;
+      if (!img || !img.width) return;
+      var c = document.createElement('canvas');
+      c.width = img.width;
+      c.height = img.height;
+      var ctx = c.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      var data = ctx.getImageData(0, 0, c.width, c.height);
+      var px = data.data;
+      for (var i = 0; i < px.length; i += 4) {
+        var r = px[i], g = px[i + 1], b = px[i + 2];
+        if (r > 230 && g > 230 && b > 230) {
+          px[i + 3] = 0;
+        } else if (r > 200 && g > 200 && b > 200) {
+          px[i + 3] = Math.min(px[i + 3], Math.floor((255 - r) * 2));
+        }
+      }
+      ctx.putImageData(data, 0, 0);
+      texture.image = c;
+      texture.needsUpdate = true;
+    }
+
+    function clearLogoMeshes() {
+      if (!logoGroup) return;
+      while (logoGroup.children.length) {
+        var child = logoGroup.children[0];
+        logoGroup.remove(child);
+        if (child.geometry) child.geometry.dispose();
+        if (child.material) {
+          if (Array.isArray(child.material)) {
+            child.material.forEach(function (m) {
+              if (m.map) m.map.dispose();
+              m.dispose();
+            });
+          } else {
+            if (child.material.map) child.material.map.dispose();
+            child.material.dispose();
+          }
+        }
+      }
+    }
+
+    function buildLogoFromTexture(tex) {
+      if (!logoGroup || !threeRenderer) return;
+      clearLogoMeshes();
+      tex.anisotropy = threeRenderer.capabilities.getMaxAnisotropy();
+      stripWhiteBackground(tex);
+
+      var iw = tex.image && tex.image.width ? tex.image.width : 1;
+      var ih = tex.image && tex.image.height ? tex.image.height : 1;
+      var aspect = iw / ih;
+      var planeW = 6.2;
+      var planeH = planeW / aspect;
+
+      var logoMat = new THREE.MeshBasicMaterial({
+        map: tex,
+        transparent: true,
+        alphaTest: 0.04,
+        side: THREE.DoubleSide,
+        depthWrite: false,
+        toneMapped: false
+      });
+      var plane = new THREE.Mesh(new THREE.PlaneGeometry(planeW, planeH), logoMat);
+      logoGroup.add(plane);
+
+      logoReady = true;
+      /* #region agent log */
+      dbg('index.html:buildLogo', 'Large ink plane built', {
+        planeW: planeW,
+        planeH: planeH,
+        aspect: aspect,
+        dark: root.classList.contains('dark')
+      }, 'H');
+      /* #endregion */
+    }
+
+    function buildLogoFallback() {
+      if (!logoGroup) return;
+      clearLogoMeshes();
+      var mat = new THREE.MeshBasicMaterial({
+        color: root.classList.contains('dark') ? 0xf5f5f0 : 0x1a1a1a,
+        transparent: true,
+        opacity: 0.35
+      });
+      logoGroup.add(new THREE.Mesh(new THREE.PlaneGeometry(5, 3), mat));
+      logoReady = true;
+    }
+
+    function initThree() {
+      /* #region agent log */
+      dbg('index.html:initThree', 'initThree called', { hasTHREE: typeof THREE !== 'undefined' }, 'C');
+      /* #endregion */
+      if (typeof THREE === 'undefined') return;
+
+      try {
+        var canvas = document.getElementById('hero-canvas');
+        var wrap = document.getElementById('hero-logo-stage');
+        threeScene = new THREE.Scene();
+        threeCamera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+        threeCamera.position.z = 5.2;
+
+        threeRenderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+        threeRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        threeRenderer.setClearColor(0x000000, 0);
+
+        logoGroup = new THREE.Group();
+        threeScene.add(logoGroup);
+
+        var texLoader = new THREE.TextureLoader();
+        texLoader.crossOrigin = 'anonymous';
+
+        texLoader.load(
+          ABCAT_LOGO_URL,
+          function (tex) {
+            buildLogoFromTexture(tex);
+          },
+          undefined,
+          function (err) {
+            /* #region agent log */
+            dbg('index.html:texture', 'Logo texture FAILED', { error: String(err) }, 'A');
+            /* #endregion */
+            buildLogoFallback();
+          }
+        );
+
+        document.addEventListener('mousemove', function (e) {
+          mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+          mouseY = (e.clientY / window.innerHeight - 0.5) * -2;
+        });
+
+        function resize() {
+          var w = wrap.clientWidth;
+          var h = wrap.clientHeight;
+          /* #region agent log */
+          dbg('index.html:resize', 'Canvas resize', { w: w, h: h }, 'B');
+          /* #endregion */
+          if (!w || !h) return;
+          threeCamera.aspect = w / h;
+          threeCamera.updateProjectionMatrix();
+          threeRenderer.setSize(w, h, false);
+        }
+
+        resize();
+        requestAnimationFrame(resize);
+        window.addEventListener('load', resize);
+        window.addEventListener('resize', debounce(resize, 200));
+
+        if (typeof ResizeObserver !== 'undefined') {
+          var ro = new ResizeObserver(debounce(resize, 100));
+          ro.observe(wrap);
+        }
+
+        document.addEventListener('visibilitychange', function () {
+          threePaused = document.hidden;
+        });
+
+        function animate() {
+          requestAnimationFrame(animate);
+          if (threePaused || !logoGroup || !threeRenderer) return;
+          if (!prefersReduced && logoReady) {
+            /* Mouse-only parallax — no auto-spin or idle float */
+            var targetRotX = mouseY * 0.26;
+            var targetRotY = mouseX * 0.26;
+            logoGroup.rotation.x += (targetRotX - logoGroup.rotation.x) * 0.08;
+            logoGroup.rotation.y += (targetRotY - logoGroup.rotation.y) * 0.08;
+          }
+          threeRenderer.render(threeScene, threeCamera);
+        }
+        animate();
+
+        /* #region agent log */
+        dbg('index.html:initThree', 'Three loop started', { ok: true }, 'C');
+        /* #endregion */
+      } catch (err) {
+        /* #region agent log */
+        dbg('index.html:initThree', 'initThree CRASHED', { error: String(err) }, 'C');
+        /* #endregion */
+      }
+    }
+
+    /* === GSAP === */
+    function initGSAP() {
+      if (typeof gsap === 'undefined') {
+        /* #region agent log */
+        dbg('index.html:gsap', 'GSAP missing', {}, 'C');
+        /* #endregion */
+        dismissLoader();
+        return;
+      }
+      if (typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
+
+      setTimeout(function () {
+        dismissLoader();
+        if (!prefersReduced) {
+          var title = document.getElementById('hero-title');
+          var words = title.textContent.split(' ');
+          title.innerHTML = '';
+          words.forEach(function (w, i) {
+            var span = document.createElement('span');
+            span.className = 'word';
+            span.style.display = 'inline-block';
+            span.style.marginRight = '0.25em';
+            span.textContent = w;
+            title.appendChild(span);
+          });
+          gsap.from('#hero-title .word', {
+            y: 30, opacity: 0, duration: 0.8, stagger: 0.1, ease: EASE, delay: 0.1
+          });
+          gsap.from('.hero__sub, .btn-cta', {
+            y: 30, opacity: 0, duration: 0.8, stagger: 0.1, ease: EASE, delay: 0.35
+          });
+        }
+        /* #region agent log */
+        dbg('index.html:loader', 'Loader dismissed', { reduced: prefersReduced }, 'E');
+        /* #endregion */
+      }, LOADER_MS);
+
+      gsap.utils.toArray('.reveal-head .section__underline, .reveal-head-line').forEach(function (line) {
+        gsap.to(line, {
+          clipPath: 'inset(0 0% 0 0)',
+          duration: 0.8,
+          ease: EASE,
+          scrollTrigger: { trigger: line, start: 'top 88%', toggleActions: 'play none none reverse' }
+        });
+      });
+
+      gsap.utils.toArray('.reveal-block').forEach(function (el) {
+        gsap.from(el, {
+          opacity: 0, y: 40, duration: DUR, ease: EASE,
+          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none reverse' }
+        });
+      });
+
+      var aboutImg = document.querySelector('#about-parallax img');
+      if (aboutImg && !prefersReduced) {
+        gsap.to(aboutImg, {
+          y: -30,
+          ease: 'none',
+          scrollTrigger: { trigger: '#about-parallax', start: 'top bottom', end: 'bottom top', scrub: 1 }
+        });
+      }
+    }
+
+    function dismissLoader() {
+      document.body.classList.remove('is-loading');
+      var loader = document.getElementById('loader');
+      if (typeof gsap !== 'undefined' && !prefersReduced) {
+        gsap.to(loader, {
+          opacity: 0, duration: 0.7, ease: EASE,
+          onComplete: function () { loader.style.display = 'none'; }
+        });
+      } else {
+        loader.style.display = 'none';
+      }
+    }
+
+    function initCardST() {
+      if (typeof ScrollTrigger === 'undefined' || typeof gsap === 'undefined') return;
+      cardST.forEach(function (s) { s.kill(); });
+      cardST = [];
+      document.querySelectorAll('.card:not(.is-hidden)').forEach(function (card) {
+        gsap.set(card, { opacity: 0, y: 40 });
+        var st = ScrollTrigger.create({
+          trigger: card,
+          start: 'top 92%',
+          once: true,
+          onEnter: function () {
+            gsap.to(card, { opacity: 1, y: 0, duration: DUR, ease: EASE });
+          }
+        });
+        cardST.push(st);
+      });
+      ScrollTrigger.refresh();
+    }
+
+    renderGalleryPage();
+    initThree();
+    initGSAP();
+
+    setTimeout(function () {
+      if (document.body.classList.contains('is-loading')) dismissLoader();
+    }, LOADER_MS + 800);
+
+  })();
+  </script>
+</body>
+</html>

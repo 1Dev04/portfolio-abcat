@@ -1,0 +1,254 @@
+{"sessionId":"05a1fd","location":"index.html:boot","message":"Page script started","data":{"three":true,"gsap":true,"scrollTrigger":true},"hypothesisId":"C","timestamp":1779376182063,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"initThree called","data":{"hasTHREE":true},"hypothesisId":"C","timestamp":1779376182072,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":819,"h":710},"hypothesisId":"B","timestamp":1779376182091,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"Three loop started","data":{"meshCount":1},"hypothesisId":"D","timestamp":1779376182102,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:texture","message":"Logo texture loaded","data":{"w":558,"h":560},"hypothesisId":"A","timestamp":1779376182114,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:loader","message":"Loader dismissed","data":{"reduced":false},"hypothesisId":"E","timestamp":1779376184105,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:boot","message":"Page script started","data":{"three":true,"gsap":true,"scrollTrigger":true},"hypothesisId":"C","timestamp":1779376193199,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"initThree called","data":{"hasTHREE":true},"hypothesisId":"C","timestamp":1779376193210,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":1536,"h":730},"hypothesisId":"B","timestamp":1779376193243,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"Three loop started","data":{"meshCount":1},"hypothesisId":"D","timestamp":1779376193262,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:texture","message":"Logo texture loaded","data":{"w":558,"h":560},"hypothesisId":"A","timestamp":1779376193278,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:loader","message":"Loader dismissed","data":{"reduced":false},"hypothesisId":"E","timestamp":1779376195266,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:theme","message":"Theme toggled","data":{"mode":"light"},"hypothesisId":"E","timestamp":1779376212267,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:theme","message":"Theme toggled","data":{"mode":"dark"},"hypothesisId":"E","timestamp":1779376272482,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:boot","message":"Page script started","data":{"three":true,"gsap":true,"scrollTrigger":true},"hypothesisId":"C","timestamp":1779376341746,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779376341748,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"initThree called","data":{"hasTHREE":true},"hypothesisId":"C","timestamp":1779376341755,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":1536,"h":730},"hypothesisId":"B","timestamp":1779376341772,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"Three loop started","data":{"meshCount":1},"hypothesisId":"D","timestamp":1779376341785,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:texture","message":"Logo texture loaded","data":{"w":558,"h":560},"hypothesisId":"A","timestamp":1779376341793,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:loader","message":"Loader dismissed","data":{"reduced":false},"hypothesisId":"E","timestamp":1779376343789,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":1162,"h":844},"hypothesisId":"B","timestamp":1779376347894,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":1521,"h":730},"hypothesisId":"B","timestamp":1779376356890,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":620,"h":710},"hypothesisId":"B","timestamp":1779376362070,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:boot","message":"Page script started","data":{"three":true,"gsap":true,"scrollTrigger":true},"hypothesisId":"C","timestamp":1779376363355,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779376363357,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"initThree called","data":{"hasTHREE":true},"hypothesisId":"C","timestamp":1779376363362,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":635,"h":710},"hypothesisId":"B","timestamp":1779376363381,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"Three loop started","data":{"meshCount":1},"hypothesisId":"D","timestamp":1779376363387,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:texture","message":"Logo texture loaded","data":{"w":558,"h":560},"hypothesisId":"A","timestamp":1779376363396,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:loader","message":"Loader dismissed","data":{"reduced":false},"hypothesisId":"E","timestamp":1779376365393,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":2,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779376373163,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":496,"h":694},"hypothesisId":"B","timestamp":1779376375068,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":620,"h":710},"hypothesisId":"B","timestamp":1779376376444,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":917,"h":710},"hypothesisId":"B","timestamp":1779376378415,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779376381154,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":2,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779376384946,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":1,"itemCount":3,"perPage":6,"visible":false},"hypothesisId":"F","timestamp":1779376386127,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":1,"itemCount":3,"perPage":6,"visible":false},"hypothesisId":"F","timestamp":1779376386222,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":1,"itemCount":3,"perPage":6,"visible":false},"hypothesisId":"F","timestamp":1779376389041,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":1,"itemCount":3,"perPage":6,"visible":false},"hypothesisId":"F","timestamp":1779376392810,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":1,"itemCount":3,"perPage":6,"visible":false},"hypothesisId":"F","timestamp":1779376394240,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779376403367,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:theme","message":"Theme toggled","data":{"mode":"dark"},"hypothesisId":"E","timestamp":1779376486874,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:theme","message":"Theme toggled","data":{"mode":"light"},"hypothesisId":"E","timestamp":1779376487857,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:boot","message":"Page script started","data":{"three":true,"gsap":true,"scrollTrigger":true},"hypothesisId":"C","timestamp":1779376504409,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779376504410,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"initThree called","data":{"hasTHREE":true},"hypothesisId":"C","timestamp":1779376504415,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":932,"h":710},"hypothesisId":"B","timestamp":1779376504431,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"Three loop started","data":{"ok":true},"hypothesisId":"C","timestamp":1779376504433,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":932,"h":710},"hypothesisId":"B","timestamp":1779376504437,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:buildLogo","message":"3D logo mesh built","data":{"children":2,"texW":558,"texH":560},"hypothesisId":"D","timestamp":1779376504489,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":932,"h":710},"hypothesisId":"B","timestamp":1779376504540,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":932,"h":710},"hypothesisId":"B","timestamp":1779376504541,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:loader","message":"Loader dismissed","data":{"reduced":false},"hypothesisId":"E","timestamp":1779376506438,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":917,"h":710},"hypothesisId":"B","timestamp":1779376506547,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":661,"h":694},"hypothesisId":"B","timestamp":1779376521317,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":661,"h":694},"hypothesisId":"B","timestamp":1779376521414,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":917,"h":710},"hypothesisId":"B","timestamp":1779376522331,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":917,"h":710},"hypothesisId":"B","timestamp":1779376522428,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:boot","message":"Page script started","data":{"three":true,"gsap":true,"scrollTrigger":true},"hypothesisId":"C","timestamp":1779376523200,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779376523201,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"initThree called","data":{"hasTHREE":true},"hypothesisId":"C","timestamp":1779376523206,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":932,"h":710},"hypothesisId":"B","timestamp":1779376523230,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"Three loop started","data":{"ok":true},"hypothesisId":"C","timestamp":1779376523232,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":932,"h":710},"hypothesisId":"B","timestamp":1779376523236,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:buildLogo","message":"3D logo mesh built","data":{"children":2,"texW":558,"texH":560},"hypothesisId":"D","timestamp":1779376523252,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":932,"h":710},"hypothesisId":"B","timestamp":1779376523274,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":932,"h":710},"hypothesisId":"B","timestamp":1779376523343,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:loader","message":"Loader dismissed","data":{"reduced":false},"hypothesisId":"E","timestamp":1779376525240,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":917,"h":710},"hypothesisId":"B","timestamp":1779376525348,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:boot","message":"Page script started","data":{"three":true,"gsap":true,"scrollTrigger":true},"hypothesisId":"C","timestamp":1779376528499,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779376528501,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"initThree called","data":{"hasTHREE":true},"hypothesisId":"C","timestamp":1779376528519,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":1536,"h":730},"hypothesisId":"B","timestamp":1779376528536,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"Three loop started","data":{"ok":true},"hypothesisId":"C","timestamp":1779376528541,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":1536,"h":730},"hypothesisId":"B","timestamp":1779376528545,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:buildLogo","message":"3D logo mesh built","data":{"children":2,"texW":558,"texH":560},"hypothesisId":"D","timestamp":1779376528577,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":1536,"h":730},"hypothesisId":"B","timestamp":1779376528580,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":1536,"h":730},"hypothesisId":"B","timestamp":1779376528648,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:loader","message":"Loader dismissed","data":{"reduced":false},"hypothesisId":"E","timestamp":1779376530545,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":1521,"h":730},"hypothesisId":"B","timestamp":1779376530655,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:theme","message":"Theme toggled","data":{"mode":"light"},"hypothesisId":"E","timestamp":1779376544830,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:boot","message":"Page script started","data":{"three":true,"gsap":true,"scrollTrigger":true},"hypothesisId":"C","timestamp":1779376763586,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779376763587,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"initThree called","data":{"hasTHREE":true},"hypothesisId":"C","timestamp":1779376763591,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":932,"h":710},"hypothesisId":"B","timestamp":1779376763608,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"Three loop started","data":{"ok":true},"hypothesisId":"C","timestamp":1779376763611,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":932,"h":710},"hypothesisId":"B","timestamp":1779376763615,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:buildLogo","message":"3D logo mesh built","data":{"children":2,"texW":558,"texH":560},"hypothesisId":"D","timestamp":1779376763642,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":932,"h":710},"hypothesisId":"B","timestamp":1779376763662,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":932,"h":710},"hypothesisId":"B","timestamp":1779376763716,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:loader","message":"Loader dismissed","data":{"reduced":false},"hypothesisId":"E","timestamp":1779376765615,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":917,"h":710},"hypothesisId":"B","timestamp":1779376765723,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:boot","message":"Page script started","data":{"three":true,"gsap":true,"scrollTrigger":true},"hypothesisId":"C","timestamp":1779376834239,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779376834240,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"initThree called","data":{"hasTHREE":true},"hypothesisId":"C","timestamp":1779376834251,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":1536,"h":730},"hypothesisId":"B","timestamp":1779376834268,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"Three loop started","data":{"ok":true},"hypothesisId":"C","timestamp":1779376834273,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":1536,"h":730},"hypothesisId":"B","timestamp":1779376834277,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:buildLogo","message":"3D logo mesh built","data":{"children":2,"texW":558,"texH":560},"hypothesisId":"D","timestamp":1779376834308,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":1536,"h":730},"hypothesisId":"B","timestamp":1779376834334,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":1536,"h":730},"hypothesisId":"B","timestamp":1779376834380,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:loader","message":"Loader dismissed","data":{"reduced":false},"hypothesisId":"E","timestamp":1779376836277,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":1521,"h":730},"hypothesisId":"B","timestamp":1779376836386,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":1536,"h":730},"hypothesisId":"B","timestamp":1779376863319,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":1521,"h":730},"hypothesisId":"B","timestamp":1779376872590,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":1536,"h":730},"hypothesisId":"B","timestamp":1779376876881,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":1521,"h":730},"hypothesisId":"B","timestamp":1779376878220,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:theme","message":"Theme toggled","data":{"mode":"dark"},"hypothesisId":"E","timestamp":1779376892985,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:theme","message":"Theme toggled","data":{"mode":"light"},"hypothesisId":"E","timestamp":1779376924843,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:theme","message":"Theme toggled","data":{"mode":"dark"},"hypothesisId":"E","timestamp":1779376925932,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:theme","message":"Theme toggled","data":{"mode":"light"},"hypothesisId":"E","timestamp":1779376926998,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:theme","message":"Theme toggled","data":{"mode":"dark"},"hypothesisId":"E","timestamp":1779376930214,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":1,"itemCount":3,"perPage":6,"visible":false},"hypothesisId":"F","timestamp":1779376993292,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":1,"itemCount":3,"perPage":6,"visible":false},"hypothesisId":"F","timestamp":1779376993846,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779376994317,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":2,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779377001132,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":1,"itemCount":3,"perPage":6,"visible":false},"hypothesisId":"F","timestamp":1779377009895,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":1,"itemCount":3,"perPage":6,"visible":false},"hypothesisId":"F","timestamp":1779377010162,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":1,"itemCount":3,"perPage":6,"visible":false},"hypothesisId":"F","timestamp":1779377010555,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779377012802,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779377012850,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:theme","message":"Theme toggled","data":{"mode":"light"},"hypothesisId":"E","timestamp":1779377050198,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":760,"h":710},"hypothesisId":"B","timestamp":1779377133953,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":760,"h":710},"hypothesisId":"B","timestamp":1779377134050,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":745,"h":710},"hypothesisId":"B","timestamp":1779377134238,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":745,"h":710},"hypothesisId":"B","timestamp":1779377134335,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":614,"h":710},"hypothesisId":"B","timestamp":1779377134626,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":614,"h":710},"hypothesisId":"B","timestamp":1779377134723,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":685,"h":710},"hypothesisId":"B","timestamp":1779377134994,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":628,"h":710},"hypothesisId":"B","timestamp":1779377135247,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":628,"h":710},"hypothesisId":"B","timestamp":1779377135346,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":643,"h":710},"hypothesisId":"B","timestamp":1779377137021,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":628,"h":710},"hypothesisId":"B","timestamp":1779377139139,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":643,"h":710},"hypothesisId":"B","timestamp":1779377141801,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":628,"h":710},"hypothesisId":"B","timestamp":1779377143194,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:boot","message":"Page script started","data":{"three":true,"gsap":true,"scrollTrigger":true},"hypothesisId":"C","timestamp":1779377167102,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779377167104,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"initThree called","data":{"hasTHREE":true},"hypothesisId":"C","timestamp":1779377167111,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":270},"hypothesisId":"B","timestamp":1779377167127,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"Three loop started","data":{"ok":true},"hypothesisId":"C","timestamp":1779377167130,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":270},"hypothesisId":"B","timestamp":1779377167134,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:buildLogo","message":"3D logo mesh built","data":{"children":2,"texW":558,"texH":560},"hypothesisId":"D","timestamp":1779377167151,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":270},"hypothesisId":"B","timestamp":1779377167173,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":270},"hypothesisId":"B","timestamp":1779377167246,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:loader","message":"Loader dismissed","data":{"reduced":false},"hypothesisId":"E","timestamp":1779377169133,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":264},"hypothesisId":"B","timestamp":1779377173072,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":264},"hypothesisId":"B","timestamp":1779377173170,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":270},"hypothesisId":"B","timestamp":1779377174443,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":270},"hypothesisId":"B","timestamp":1779377174542,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:boot","message":"Page script started","data":{"three":true,"gsap":true,"scrollTrigger":true},"hypothesisId":"C","timestamp":1779377178830,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:cursor","message":"Cursor theme synced","data":{"dark":false,"fill":"#0d0d0d"},"hypothesisId":"G","timestamp":1779377178831,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779377178832,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"initThree called","data":{"hasTHREE":true},"hypothesisId":"C","timestamp":1779377178843,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":277},"hypothesisId":"B","timestamp":1779377178860,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"Three loop started","data":{"ok":true},"hypothesisId":"C","timestamp":1779377178864,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":277},"hypothesisId":"B","timestamp":1779377178869,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:buildLogo","message":"3D logo mesh built","data":{"children":2,"texW":558,"texH":560},"hypothesisId":"D","timestamp":1779377178884,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":277},"hypothesisId":"B","timestamp":1779377178912,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":277},"hypothesisId":"B","timestamp":1779377178973,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:loader","message":"Loader dismissed","data":{"reduced":false},"hypothesisId":"E","timestamp":1779377180870,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:cursor","message":"Cursor theme synced","data":{"dark":true,"fill":"#f5f5f0"},"hypothesisId":"G","timestamp":1779377182386,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:theme","message":"Theme toggled","data":{"mode":"dark"},"hypothesisId":"E","timestamp":1779377182386,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:cursor","message":"Cursor theme synced","data":{"dark":false,"fill":"#0d0d0d"},"hypothesisId":"G","timestamp":1779377183077,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:theme","message":"Theme toggled","data":{"mode":"light"},"hypothesisId":"E","timestamp":1779377183077,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:cursor","message":"Cursor theme synced","data":{"dark":true,"fill":"#f5f5f0"},"hypothesisId":"G","timestamp":1779377189372,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:theme","message":"Theme toggled","data":{"mode":"dark"},"hypothesisId":"E","timestamp":1779377189372,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:cursor","message":"Cursor theme synced","data":{"dark":false,"fill":"#0d0d0d"},"hypothesisId":"G","timestamp":1779377190322,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:theme","message":"Theme toggled","data":{"mode":"light"},"hypothesisId":"E","timestamp":1779377190322,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:boot","message":"Page script started","data":{"three":true,"gsap":true,"scrollTrigger":true},"hypothesisId":"C","timestamp":1779377262982,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779377262983,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"initThree called","data":{"hasTHREE":true},"hypothesisId":"C","timestamp":1779377262989,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":270},"hypothesisId":"B","timestamp":1779377263005,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"Three loop started","data":{"ok":true},"hypothesisId":"C","timestamp":1779377263007,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":270},"hypothesisId":"B","timestamp":1779377263011,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:buildLogo","message":"3D logo mesh built","data":{"children":2,"texW":558,"texH":560},"hypothesisId":"D","timestamp":1779377263025,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":270},"hypothesisId":"B","timestamp":1779377263046,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":270},"hypothesisId":"B","timestamp":1779377263113,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:loader","message":"Loader dismissed","data":{"reduced":false},"hypothesisId":"E","timestamp":1779377265010,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":270},"hypothesisId":"B","timestamp":1779377280167,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:boot","message":"Page script started","data":{"three":true,"gsap":true,"scrollTrigger":true},"hypothesisId":"C","timestamp":1779377285382,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779377285383,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"initThree called","data":{"hasTHREE":true},"hypothesisId":"C","timestamp":1779377285388,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":270},"hypothesisId":"B","timestamp":1779377285408,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"Three loop started","data":{"ok":true},"hypothesisId":"C","timestamp":1779377285410,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":270},"hypothesisId":"B","timestamp":1779377285415,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:buildLogo","message":"3D logo mesh built","data":{"children":2,"texW":558,"texH":560},"hypothesisId":"D","timestamp":1779377285428,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":270},"hypothesisId":"B","timestamp":1779377285451,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":270},"hypothesisId":"B","timestamp":1779377285526,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:loader","message":"Loader dismissed","data":{"reduced":false},"hypothesisId":"E","timestamp":1779377287416,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:boot","message":"Page script started","data":{"three":true,"gsap":true,"scrollTrigger":true},"hypothesisId":"C","timestamp":1779377292705,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:cursor","message":"Cursor theme synced (CSS vars)","data":{"dark":false,"dot":"#5c5348","ring":"#9a8f7a"},"hypothesisId":"G","timestamp":1779377292708,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779377292709,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"initThree called","data":{"hasTHREE":true},"hypothesisId":"C","timestamp":1779377292719,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":277},"hypothesisId":"B","timestamp":1779377292737,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"Three loop started","data":{"ok":true},"hypothesisId":"C","timestamp":1779377292741,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":277},"hypothesisId":"B","timestamp":1779377292746,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:buildLogo","message":"3D logo mesh built","data":{"children":2,"texW":558,"texH":560},"hypothesisId":"D","timestamp":1779377292767,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":277},"hypothesisId":"B","timestamp":1779377292798,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":277},"hypothesisId":"B","timestamp":1779377292852,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:loader","message":"Loader dismissed","data":{"reduced":false},"hypothesisId":"E","timestamp":1779377294748,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:boot","message":"Page script started","data":{"three":true,"gsap":true,"scrollTrigger":true},"hypothesisId":"C","timestamp":1779377381060,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:cursor","message":"Cursor theme synced","data":{"dark":false,"fill":"#0d0d0d"},"hypothesisId":"G","timestamp":1779377381061,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779377381062,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"initThree called","data":{"hasTHREE":true},"hypothesisId":"C","timestamp":1779377381070,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":277},"hypothesisId":"B","timestamp":1779377381085,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"Three loop started","data":{"ok":true},"hypothesisId":"C","timestamp":1779377381089,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":277},"hypothesisId":"B","timestamp":1779377381092,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:buildLogo","message":"3D logo mesh built","data":{"children":2,"texW":558,"texH":560},"hypothesisId":"D","timestamp":1779377381107,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":277},"hypothesisId":"B","timestamp":1779377381134,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":277},"hypothesisId":"B","timestamp":1779377381206,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":300},"hypothesisId":"B","timestamp":1779377381602,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:cursor","message":"Cursor theme synced","data":{"dark":false,"fill":"#0d0d0d"},"hypothesisId":"G","timestamp":1779377381762,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":300},"hypothesisId":"B","timestamp":1779377381762,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":277},"hypothesisId":"B","timestamp":1779377382394,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:cursor","message":"Cursor theme synced","data":{"dark":false,"fill":"#0d0d0d"},"hypothesisId":"G","timestamp":1779377382491,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":400,"h":277},"hypothesisId":"B","timestamp":1779377382491,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:loader","message":"Loader dismissed","data":{"reduced":false},"hypothesisId":"E","timestamp":1779377383092,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:boot","message":"Page script started","data":{"three":true,"gsap":true,"scrollTrigger":true},"hypothesisId":"C","timestamp":1779377424298,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779377424299,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"initThree called","data":{"hasTHREE":true},"hypothesisId":"C","timestamp":1779377424304,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":640,"h":390},"hypothesisId":"B","timestamp":1779377424324,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"Three loop started","data":{"ok":true},"hypothesisId":"C","timestamp":1779377424326,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":640,"h":390},"hypothesisId":"B","timestamp":1779377424330,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:buildLogo","message":"Large ink plane built","data":{"planeW":6.2,"planeH":6.222222222222222,"aspect":0.9964285714285714,"dark":false},"hypothesisId":"H","timestamp":1779377424347,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":640,"h":390},"hypothesisId":"B","timestamp":1779377424363,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":640,"h":390},"hypothesisId":"B","timestamp":1779377424435,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:loader","message":"Loader dismissed","data":{"reduced":false},"hypothesisId":"E","timestamp":1779377426333,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":635,"h":381},"hypothesisId":"B","timestamp":1779377431054,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":635,"h":381},"hypothesisId":"B","timestamp":1779377431153,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":640,"h":390},"hypothesisId":"B","timestamp":1779377432985,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":640,"h":390},"hypothesisId":"B","timestamp":1779377433079,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:boot","message":"Page script started","data":{"three":true,"gsap":true,"scrollTrigger":true},"hypothesisId":"C","timestamp":1779377435902,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:cursor","message":"Cursor theme synced","data":{"dark":false,"fill":"#0d0d0d"},"hypothesisId":"G","timestamp":1779377435903,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779377435903,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"initThree called","data":{"hasTHREE":true},"hypothesisId":"C","timestamp":1779377435911,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":640,"h":401},"hypothesisId":"B","timestamp":1779377435931,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"Three loop started","data":{"ok":true},"hypothesisId":"C","timestamp":1779377435935,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":640,"h":401},"hypothesisId":"B","timestamp":1779377435938,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:buildLogo","message":"Large ink plane built","data":{"planeW":6.2,"planeH":6.222222222222222,"aspect":0.9964285714285714,"dark":false},"hypothesisId":"H","timestamp":1779377435961,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":640,"h":401},"hypothesisId":"B","timestamp":1779377435976,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":640,"h":401},"hypothesisId":"B","timestamp":1779377436041,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:loader","message":"Loader dismissed","data":{"reduced":false},"hypothesisId":"E","timestamp":1779377437939,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:cursor","message":"Cursor theme synced","data":{"dark":true,"fill":"#f5f5f0"},"hypothesisId":"G","timestamp":1779377440248,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:theme","message":"Theme toggled","data":{"mode":"dark"},"hypothesisId":"E","timestamp":1779377440248,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:cursor","message":"Cursor theme synced","data":{"dark":false,"fill":"#0d0d0d"},"hypothesisId":"G","timestamp":1779377463907,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:theme","message":"Theme toggled","data":{"mode":"light"},"hypothesisId":"E","timestamp":1779377463907,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":2,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779377508398,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":1,"itemCount":3,"perPage":6,"visible":false},"hypothesisId":"F","timestamp":1779377509616,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":1,"itemCount":3,"perPage":6,"visible":false},"hypothesisId":"F","timestamp":1779377510032,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":1,"itemCount":3,"perPage":6,"visible":false},"hypothesisId":"F","timestamp":1779377510340,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":1,"itemCount":3,"perPage":6,"visible":false},"hypothesisId":"F","timestamp":1779377510576,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779377511130,"runId":"initial"}
