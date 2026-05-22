@@ -106,8 +106,8 @@
       .hero__logo-stage { position:relative; z-index:1; width:min(420px,88vw); aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; border-radius:2rem; background:var(--hero-stage-bg); border:1px solid var(--hero-stage-border); box-shadow:0 2px 0 rgba(255,255,255,0.06) inset,0 -1px 0 rgba(0,0,0,0.4) inset,0 32px 80px rgba(0,0,0,0.3); overflow:hidden; animation:logo-float 5s ease-in-out infinite; }
       .hero__logo-stage::after { content:''; position:absolute; inset:14px; border:1px solid var(--hero-stage-border); border-radius:1.4rem; pointer-events:none; }
       @keyframes logo-float { 0%,100% { transform:translateY(0px); } 50% { transform:translateY(-10px); } }
-      .hero__logo-img { width:72%; height:72%; object-fit:contain; filter:var(--logo-filter); transition:filter 0.4s; position:relative; z-index:1; box-shadow:0 4px 24px rgba(0,0,0,0.4); }
-      html.dark .hero__logo-img { filter:invert(1) brightness(1.15) drop-shadow(0 4px 20px rgba(255,255,255,0.15)); }
+      .hero__logo-img { width:72%; height:72%; object-fit:contain; filter:var(--logo-filter); transition:filter 0.4s; position:relative; z-index:1;  }
+      html.dark .hero__logo-img { filter:invert(1) brightness(1.15)  }
       .hero__content { position:relative; z-index:2; max-width:640px; }
       /* eyebrow — DM Sans small caps style */
       .hero__eyebrow { display:block; font-family:var(--font-body); font-size:0.7rem; letter-spacing:0.38em; text-transform:uppercase; font-weight:500; color:var(--text-muted); margin-bottom:0.85rem; }
@@ -225,7 +225,7 @@
       .about__tags { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1.5rem; }
       /* tags — DM Sans for readability */
       .tag { font-family:var(--font-body); padding:0.35rem 0.85rem; font-size:0.78rem; font-weight:400; border:1px solid var(--border); border-radius:999px; letter-spacing:0.03em; }
-      .about__img-wrap { border-radius:12px; overflow:hidden; border:1px solid var(--border); aspect-ratio:4/5; }
+      .about__img-wrap { border: radius 20px; overflow:hidden;  aspect-ratio:4/4; }
       .about__img-wrap img { width:100%; height:100%; object-fit:cover; }
 
       /* CONTACT — social links only */
@@ -256,7 +256,7 @@
 
     <header class="nav" id="nav" role="banner">
       <a href="#hero" class="nav__logo" aria-label="ABCat Shop home" data-hover>
-        <img class="nav__logo-img" src="https://res.cloudinary.com/dag73dhpl/image/upload/v1779371158/Screenshot_2026-05-21_160521_cvi0gg.jpg" alt="ABCat Shop" width="120" height="38" loading="eager"/>
+         <h1>KY</h1>
       </a>
       <nav class="nav__links" aria-label="Primary">
         <a href="#work" data-hover>Work</a>
@@ -362,7 +362,6 @@
     </main>
 
     <footer>
-      <img class="footer__logo" src="https://res.cloudinary.com/dag73dhpl/image/upload/v1779371158/Screenshot_2026-05-21_160521_cvi0gg.jpg" alt="ABCat Shop" width="80" height="22" loading="lazy"/>
       <span>© <span id="year"></span> Krittiphon Yoonaitham · ABCat Shop</span>
     </footer>
 
@@ -387,9 +386,8 @@
     <!-- MOBILE LIGHTBOX -->
     <div class="lightbox-mobile" id="lbm" role="dialog" aria-modal="true" aria-label="Artwork viewer">
       <div class="lbm__bar">
-        <button type="button" class="lbm__close" id="lbm-close" aria-label="Close">×</button>
-        <img class="lbm__logo" src="https://res.cloudinary.com/dag73dhpl/image/upload/v1779371158/Screenshot_2026-05-21_160521_cvi0gg.jpg" alt="ABCat Shop" width="80" height="28"/>
-      </div>
+  <button type="button" class="lbm__close" id="lbm-close" aria-label="Close">×</button>
+</div>
       <div class="lbm__img-wrap" id="lbm-img-wrap">
         <img class="lbm__img" id="lbm-img" src="" alt=""/>
       </div>
@@ -464,7 +462,7 @@
         el.addEventListener('mouseleave',()=>ring.classList.remove('is-hover'));
       });
       document.addEventListener('mousemove',e=>{ cx=e.clientX; cy=e.clientY; dot.style.left=cx+'px'; dot.style.top=cy+'px'; });
-      (function rafCursor(){ rx+=(cx-rx)*0.12; ry+=(cy-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(rafCursor); })();
+      (function rafCursor(){ rx+=(cx-rx)*0.35; ry+=(cy-ry)*0.35; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(rafCursor); })();
 
       /* Lazy images */
       if('IntersectionObserver' in window){
