@@ -12,5 +12,12 @@ const dataSet = {
         clothing: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779432500/upscalemedia-transformed_3_hwen66.jpg",
         cat_clothing: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779432499/upscalemedia-transformed_4_veksp3.jpg",
         cat_clothing_package: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779431914/upscalemedia-transformed_2_ibqs0y.jpg"
+    },
+    Images03: {
+        label: "[ABCat] ",
+        cat: "",
+        clothing:"",
+        cat_clothing: "",
+        cat_clothing_package: ""
     }
 };
