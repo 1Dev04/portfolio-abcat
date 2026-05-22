@@ -100,15 +100,20 @@
       transform: translate(-50%,-50%);
       will-change: transform;
     }
-    .cursor-ring {
-      width: 32px; height: 32px;
-      border: 1.5px solid var(--text);
-      background: transparent;
-      transition: width 0.3s var(--ease), height 0.3s var(--ease), opacity 0.3s;
-    }
+   .cursor-ring {
+  width: 32px; height: 32px;
+  border: 1.5px solid #ffffff;
+  background: transparent;
+  mix-blend-mode: difference;
+  transition: width 0.3s var(--ease), height 0.3s var(--ease), opacity 0.3s;
+}
     .cursor-ring.is-hover { width: 50px; height: 50px; opacity: 0.6; }
-    .cursor-dot { width: 7px; height: 7px; background: var(--text); z-index: 10004; }
-
+   .cursor-dot { 
+  width: 7px; height: 7px; 
+  background: #ffffff; 
+  z-index: 10004; 
+  mix-blend-mode: difference; 
+}
     /* ══ LOADER ══ */
     .loader {
       position: fixed; inset: 0; z-index: 9999;
@@ -1251,6 +1256,79 @@
       });
       ScrollTrigger.refresh();
     }
+
+    /* ══ 3D HERO CARD MOUSE TRACKING ══ */
+(function init3DHeroCard() {
+  const stage = document.querySelector('.hero__logo-stage');
+  const img   = stage ? stage.querySelector('.hero__logo-img') : null;
+  if (!stage || prefersReduced || isTouch) return;
+
+  const MAX_TILT   = 18;   // degrees
+  const SHINE_DIST = 60;   // px — how far the shine moves
+  const EASE_SPEED = 0.09; // interpolation speed (0 = instant, 1 = frozen)
+
+  // Create shine overlay
+  const shine = document.createElement('div');
+  shine.style.cssText = `
+    position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+    background: radial-gradient(circle 180px at 50% 50%, rgba(255,255,255,0.18), transparent 70%);
+    opacity:0; transition:opacity 0.4s; z-index:3;
+  `;
+  stage.appendChild(shine);
+
+  let targetRX = 0, targetRY = 0, currentRX = 0, currentRY = 0;
+  let shineX = 50, shineY = 50;
+  let animating = false;
+
+  function tick() {
+    currentRX += (targetRX - currentRX) * EASE_SPEED;
+    currentRY += (targetRY - currentRY) * EASE_SPEED;
+
+    stage.style.transform = `
+      perspective(900px)
+      rotateX(${currentRX}deg)
+      rotateY(${currentRY}deg)
+      scale3d(1.03, 1.03, 1.03)
+    `;
+
+    // Shine follows cursor
+    shine.style.backgroundImage = `radial-gradient(circle 200px at ${shineX}% ${shineY}%, rgba(255,255,255,0.2), transparent 70%)`;
+
+    if (Math.abs(currentRX - targetRX) > 0.01 || Math.abs(currentRY - targetRY) > 0.01) {
+      requestAnimationFrame(tick);
+    } else {
+      animating = false;
+    }
+  }
+
+  stage.addEventListener('mousemove', e => {
+    const rect   = stage.getBoundingClientRect();
+    const x      = (e.clientX - rect.left) / rect.width;   // 0–1
+    const y      = (e.clientY - rect.top)  / rect.height;  // 0–1
+
+    targetRY =  (x - 0.5) * MAX_TILT * 2;
+    targetRX = -(y - 0.5) * MAX_TILT * 2;
+    shineX   = x * 100;
+    shineY   = y * 100;
+    shine.style.opacity = '1';
+
+    if (!animating) { animating = true; requestAnimationFrame(tick); }
+  });
+
+  stage.addEventListener('mouseleave', () => {
+    targetRX = 0; targetRY = 0;
+    shine.style.opacity = '0';
+    // Remove animation-keyframe float so CSS takes back over smoothly
+    stage.style.animation = 'none';
+    setTimeout(() => { stage.style.animation = ''; }, 100);
+    if (!animating) { animating = true; requestAnimationFrame(tick); }
+  });
+
+  stage.addEventListener('mouseenter', () => {
+    // Pause the float animation while mouse is on card
+    stage.style.animation = 'none';
+  });
+})();
 
     /* ══ INIT ══ */
     renderGalleryPage();
