@@ -252,3 +252,16 @@
 {"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":1,"itemCount":3,"perPage":6,"visible":false},"hypothesisId":"F","timestamp":1779377510340,"runId":"initial"}
 {"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":1,"itemCount":3,"perPage":6,"visible":false},"hypothesisId":"F","timestamp":1779377510576,"runId":"initial"}
 {"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779377511130,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:cursor","message":"Cursor theme synced","data":{"dark":true,"fill":"#f5f5f0"},"hypothesisId":"G","timestamp":1779377984769,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:theme","message":"Theme toggled","data":{"mode":"dark"},"hypothesisId":"E","timestamp":1779377984770,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:boot","message":"Page script started","data":{"three":true,"gsap":true,"scrollTrigger":true},"hypothesisId":"C","timestamp":1779377995388,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:cursor","message":"Cursor theme synced","data":{"dark":true,"fill":"#f5f5f0"},"hypothesisId":"G","timestamp":1779377995388,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:pagination","message":"Pagination UI updated","data":{"currentPage":1,"totalPages":2,"itemCount":9,"perPage":6,"visible":true},"hypothesisId":"F","timestamp":1779377995389,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"initThree called","data":{"hasTHREE":true},"hypothesisId":"C","timestamp":1779377995400,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":640,"h":401},"hypothesisId":"B","timestamp":1779377995418,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:initThree","message":"Three loop started","data":{"ok":true},"hypothesisId":"C","timestamp":1779377995422,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":640,"h":401},"hypothesisId":"B","timestamp":1779377995426,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:buildLogo","message":"Large ink plane built","data":{"planeW":6.2,"planeH":6.222222222222222,"aspect":0.9964285714285714,"dark":true},"hypothesisId":"H","timestamp":1779377995439,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":640,"h":401},"hypothesisId":"B","timestamp":1779377995451,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:resize","message":"Canvas resize","data":{"w":640,"h":401},"hypothesisId":"B","timestamp":1779377995530,"runId":"initial"}
+{"sessionId":"05a1fd","location":"index.html:loader","message":"Loader dismissed","data":{"reduced":false},"hypothesisId":"E","timestamp":1779377997426,"runId":"initial"}
