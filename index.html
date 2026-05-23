@@ -121,28 +121,30 @@
       .filters { display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center; max-width:var(--max-w); margin:0 auto 2.5rem; }
       .filter-tab { font-family:var(--font-body); padding:0.45rem 1.15rem; font-size:0.72rem; font-weight:500; letter-spacing:0.07em; text-transform:uppercase; border-radius:999px; border:1px solid var(--border); color:var(--text-muted); transition:background 0.3s,color 0.3s,border-color 0.3s; }
       .filter-tab.is-active { background:var(--filter-fill); color:var(--filter-text); border-color:var(--filter-fill); }
-      .masonry { column-count:1; column-gap:1.25rem; max-width:var(--max-w); margin:0 auto; }
-      @media (min-width:768px) { .masonry { column-count:2; } }
-      @media (min-width:1280px) { .masonry { column-count:3; } }
+
+      /* GRID — 1 col mobile / 2 col tablet / 3 col desktop */
+      .masonry {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        max-width: var(--max-w);
+        margin: 0 auto;
+      }
+      @media (min-width:768px)  { .masonry { grid-template-columns: repeat(2,1fr); } }
+      @media (min-width:1280px) { .masonry { grid-template-columns: repeat(3,1fr); } }
 
       /* CARD */
-      .card { break-inside:avoid; margin-bottom:1.25rem; border:1px solid var(--border); border-radius:12px; overflow:hidden; background:var(--card); contain:layout paint; cursor:none; transition:box-shadow 0.4s,border-color 0.4s; }
+      .card { border:1px solid var(--border); border-radius:12px; overflow:hidden; background:var(--card); contain:layout paint; cursor:none; transition:box-shadow 0.4s,border-color 0.4s; }
       body.no-cursor .card { cursor:pointer; }
       .card:hover { border-color:var(--text); box-shadow:var(--shadow-glow); }
       .card__media { position:relative; aspect-ratio:4/5; overflow:hidden; background:var(--bg-elevated); }
 
-      /* FIX 1: skeleton — ใช้ pseudo-element บน .card__media โดยตรง */
       .card__media.is-loading-img::before {
-        content:'';
-        position:absolute; inset:0; z-index:1;
-        background:linear-gradient(90deg, transparent 0%, color-mix(in srgb,var(--text) 6%,transparent) 50%, transparent 100%);
-        background-size:200% 100%;
-        animation:skeleton-sweep 1.4s ease-in-out infinite;
+        content:''; position:absolute; inset:0; z-index:1;
+        background:linear-gradient(90deg,transparent 0%,color-mix(in srgb,var(--text) 6%,transparent) 50%,transparent 100%);
+        background-size:200% 100%; animation:skeleton-sweep 1.4s ease-in-out infinite;
       }
-      @keyframes skeleton-sweep {
-        0%   { background-position:-200% 0; }
-        100% { background-position: 200% 0; }
-      }
+      @keyframes skeleton-sweep { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
 
       .card__media img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s var(--ease),opacity 0.35s ease; }
       .card:hover .card__media img { transform:scale(1.04); }
@@ -411,7 +413,7 @@
       const DOT_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><ellipse cx="12" cy="15" rx="4" ry="5"/><ellipse cx="6.5" cy="10.5" rx="2.2" ry="2.8"/><ellipse cx="17.5" cy="10.5" rx="2.2" ry="2.8"/><ellipse cx="8.5" cy="6.5" rx="1.8" ry="2.2"/><ellipse cx="15.5" cy="6.5" rx="1.8" ry="2.2"/></svg>`;
 
       const LOGO_URL       = 'https://res.cloudinary.com/dag73dhpl/image/upload/v1779371158/Screenshot_2026-05-21_160521_cvi0gg.jpg';
-      const ITEMS_PER_PAGE = 6;
+      const ITEMS_PER_PAGE = 9; /* 3 rows × 3 cols */
       const EASE           = 'power2.out';
       const DUR            = 0.6;
       const LOADER_MS      = 2000;
@@ -479,27 +481,13 @@
         'https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=700&q=80',
       ];
 
-      /* FIX 1: bindImg รับ mediaEl โดยตรง — แก้ปัญหา .closest() null เพราะ img ยังไม่ใน DOM */
       function bindImg(imgEl, mediaEl, src, fallbackIdx){
         imgEl.loading = 'lazy';
         imgEl.style.opacity = '0';
         mediaEl.classList.add('is-loading-img');
-
         const real = new Image();
-        real.onload = () => {
-          imgEl.src = src;
-          requestAnimationFrame(() => {
-            imgEl.style.opacity = '1';
-            mediaEl.classList.remove('is-loading-img');
-          });
-        };
-        real.onerror = () => {
-          imgEl.src = PLACEHOLDERS[fallbackIdx % PLACEHOLDERS.length];
-          requestAnimationFrame(() => {
-            imgEl.style.opacity = '1';
-            mediaEl.classList.remove('is-loading-img');
-          });
-        };
+        real.onload = () => { imgEl.src = src; requestAnimationFrame(() => { imgEl.style.opacity='1'; mediaEl.classList.remove('is-loading-img'); }); };
+        real.onerror = () => { imgEl.src = PLACEHOLDERS[fallbackIdx % PLACEHOLDERS.length]; requestAnimationFrame(() => { imgEl.style.opacity='1'; mediaEl.classList.remove('is-loading-img'); }); };
         real.src = src;
       }
 
@@ -521,7 +509,6 @@
 
         const imgEl = document.createElement('img');
         imgEl.alt = item.label;
-        /* ส่ง media เข้าไปตรงๆ แทน .closest() */
         bindImg(imgEl, media, visibleSlots[0].url, artIdx);
         media.appendChild(imgEl);
 
@@ -558,29 +545,16 @@
           });
         }
 
-        /* FIX 2: cancel token — แก้ race condition ตอนสลับรูปเร็วๆ */
         let switchToken = 0;
 
         function switchSlot(idx){
           const slot = visibleSlots[idx];
           const token = ++switchToken;
-
           imgEl.style.opacity = '0';
-
-          /* preload ก่อน แล้วค่อย swap — ถ้ามี request ใหม่มาก่อนโหลดเสร็จ ให้ยกเลิก */
           const real = new Image();
-          real.onload = () => {
-            if(token !== switchToken) return;
-            imgEl.src = slot.url;
-            badge.textContent = SLOT_LABELS[slot.key];
-            requestAnimationFrame(() => { imgEl.style.opacity = '1'; });
-          };
-          real.onerror = () => {
-            if(token !== switchToken) return;
-            imgEl.style.opacity = '1';
-          };
+          real.onload = () => { if(token !== switchToken) return; imgEl.src = slot.url; badge.textContent = SLOT_LABELS[slot.key]; requestAnimationFrame(() => { imgEl.style.opacity='1'; }); };
+          real.onerror = () => { if(token !== switchToken) return; imgEl.style.opacity='1'; };
           real.src = slot.url;
-
           media.querySelectorAll('.card__dot').forEach((d,di) => d.classList.toggle('is-active', di===idx));
         }
 
@@ -671,31 +645,21 @@
         });
       }
 
-      /* FIX 3: showLb — แก้ race condition เหมือน switchSlot ด้วย cancel token */
       let lbToken = 0;
 
       function showLb(){
         const item = ARTWORK[LB.artIdx];
         const slot = LB.slots[LB.slotIdx];
         const token = ++lbToken;
-
         lbImg.style.opacity = '0';
         lbTitle.textContent = item.label;
         lbCap.textContent   = SLOT_LABELS[slot.key];
         lbCat.textContent   = `${LB.slotIdx+1} / ${LB.slots.length}`;
         lbImg.alt           = item.label;
         renderLbSlots();
-
         const real = new Image();
-        real.onload = () => {
-          if(token !== lbToken) return;
-          lbImg.src = slot.url;
-          requestAnimationFrame(() => { lbImg.style.opacity = '1'; });
-        };
-        real.onerror = () => {
-          if(token !== lbToken) return;
-          lbImg.style.opacity = '1';
-        };
+        real.onload = () => { if(token !== lbToken) return; lbImg.src = slot.url; requestAnimationFrame(() => { lbImg.style.opacity='1'; }); };
+        real.onerror = () => { if(token !== lbToken) return; lbImg.style.opacity='1'; };
         real.src = slot.url;
       }
 
