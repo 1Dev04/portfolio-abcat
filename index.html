@@ -10,7 +10,6 @@
     <meta name="description" content="Portfolio of Krittiphon Yoonaitham — hand-drawn ink illustration, AI art, and pet products at ABCat Shop." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Caveat = handmade display, DM Sans = clean readable body -->
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
     <style>
       html.dark {
@@ -37,7 +36,6 @@
       }
       :root {
         --nav-h: 72px;
-        /* Caveat = display headings only, DM Sans = all body text */
         --font-display: "Caveat", cursive;
         --font-body: "DM Sans", system-ui, sans-serif;
         --ease: cubic-bezier(0.22,1,0.36,1);
@@ -71,7 +69,6 @@
       .loader__svg { width:72px; height:72px; transform:rotate(-90deg); }
       .loader__circle { fill:none; stroke:var(--loader-ink); stroke-width:2; stroke-dasharray:220; stroke-dashoffset:220; animation:draw-c 1.4s ease forwards; }
       @keyframes draw-c { to { stroke-dashoffset:0; } }
-      /* loader text uses DM Sans, not Caveat */
       .loader__text { font-family:var(--font-body); font-size:0.9rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-muted); }
 
       /* NAVBAR */
@@ -81,7 +78,6 @@
       .nav__logo { display:flex; align-items:center; gap:0.6rem; }
       .nav__logo-img { height:38px; width:auto; filter:var(--logo-filter); transition:filter 0.4s,opacity 0.3s; object-fit:contain; }
       .nav__logo-img:hover { opacity:0.8; }
-      /* nav links — DM Sans, clean tracking */
       .nav__links { display:flex; gap:2rem; }
       .nav__links a { font-family:var(--font-body); font-size:0.8rem; font-weight:500; letter-spacing:0.06em; color:var(--text-muted); transition:color 0.3s; }
       .nav__links a:hover { color:var(--text); }
@@ -96,7 +92,6 @@
       .hamburger__line { width:22px; height:1.5px; background:var(--text); transform-origin:center; }
       .mobile-nav { position:fixed; inset:0; z-index:999; background:var(--bg); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2rem; opacity:0; visibility:hidden; pointer-events:none; }
       .mobile-nav.is-open { pointer-events:all; }
-      /* mobile nav links — Caveat ok here, large decorative */
       .mobile-nav a { font-family:var(--font-display); font-size:clamp(2.25rem,8vw,3.5rem); }
       @media (max-width:767px) { .nav__links { display:none; } .hamburger { display:flex; } }
 
@@ -106,15 +101,12 @@
       .hero__logo-stage { position:relative; z-index:1; width:min(420px,88vw); aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; border-radius:2rem; background:var(--hero-stage-bg); border:1px solid var(--hero-stage-border); box-shadow:0 2px 0 rgba(255,255,255,0.06) inset,0 -1px 0 rgba(0,0,0,0.4) inset,0 32px 80px rgba(0,0,0,0.3); overflow:hidden; animation:logo-float 5s ease-in-out infinite; }
       .hero__logo-stage::after { content:''; position:absolute; inset:14px; border:1px solid var(--hero-stage-border); border-radius:1.4rem; pointer-events:none; }
       @keyframes logo-float { 0%,100% { transform:translateY(0px); } 50% { transform:translateY(-10px); } }
-      .hero__logo-img { width:72%; height:72%; object-fit:contain; filter:var(--logo-filter); transition:filter 0.4s; position:relative; z-index:1;  }
-      html.dark .hero__logo-img { filter:invert(1) brightness(1.15)  }
+      .hero__logo-img { width:72%; height:72%; object-fit:contain; filter:var(--logo-filter); transition:filter 0.4s; position:relative; z-index:1; }
+      html.dark .hero__logo-img { filter:invert(1) brightness(1.15); }
       .hero__content { position:relative; z-index:2; max-width:640px; }
-      /* eyebrow — DM Sans small caps style */
       .hero__eyebrow { display:block; font-family:var(--font-body); font-size:0.7rem; letter-spacing:0.38em; text-transform:uppercase; font-weight:500; color:var(--text-muted); margin-bottom:0.85rem; }
-      /* main title — Caveat display only */
       .hero__title { font-family:var(--font-display); font-size:clamp(2.8rem,8vw,5.2rem); font-weight:700; line-height:1.08; margin-bottom:0.85rem; }
       .hero__title .word { display:inline-block; overflow:hidden; margin-right:0.22em; }
-      /* subtitle — DM Sans, readable */
       .hero__sub { font-family:var(--font-body); font-size:1.1rem; font-weight:300; color:var(--text-muted); margin-bottom:2rem; letter-spacing:0.01em; }
       .btn-cta { display:inline-block; font-family:var(--font-body); padding:0.85rem 2.2rem; border-radius:999px; border:1.5px solid var(--cta-border); font-size:0.75rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; transition:background 0.4s var(--ease),color 0.4s var(--ease); }
       .btn-cta:hover { background:var(--cta-fill); color:var(--cta-text); }
@@ -122,7 +114,6 @@
       /* SECTIONS */
       .section { padding:clamp(4rem,10vw,7rem) clamp(1.25rem,4vw,3rem); }
       .section__head { margin-bottom:2.5rem; max-width:var(--max-w); margin-inline:auto; }
-      /* Section titles — Caveat, it's big decorative, still readable at large size */
       .section__title { font-family:var(--font-display); font-size:clamp(2.4rem,6vw,3.6rem); font-weight:700; line-height:1.1; }
       .section__underline { display:block; height:2px; background:var(--text); margin-top:0.7rem; max-width:100px; clip-path:inset(0 100% 0 0); }
 
@@ -139,13 +130,25 @@
       body.no-cursor .card { cursor:pointer; }
       .card:hover { border-color:var(--text); box-shadow:var(--shadow-glow); }
       .card__media { position:relative; aspect-ratio:4/5; overflow:hidden; background:var(--bg-elevated); }
-      .card__media img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s var(--ease), opacity 0.2s ease; }
+
+      /* FIX 1: skeleton — ใช้ pseudo-element บน .card__media โดยตรง */
+      .card__media.is-loading-img::before {
+        content:'';
+        position:absolute; inset:0; z-index:1;
+        background:linear-gradient(90deg, transparent 0%, color-mix(in srgb,var(--text) 6%,transparent) 50%, transparent 100%);
+        background-size:200% 100%;
+        animation:skeleton-sweep 1.4s ease-in-out infinite;
+      }
+      @keyframes skeleton-sweep {
+        0%   { background-position:-200% 0; }
+        100% { background-position: 200% 0; }
+      }
+
+      .card__media img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s var(--ease),opacity 0.35s ease; }
       .card:hover .card__media img { transform:scale(1.04); }
       .card__overlay { position:absolute; inset:auto 0 0 0; padding:1.25rem; background:linear-gradient(transparent,color-mix(in srgb,#000 80%,transparent)); transform:translateY(100%); transition:transform 0.45s var(--ease); z-index:2; }
       .card:hover .card__overlay { transform:translateY(0); }
-      /* card title — Caveat ok, it's a display label over image */
       .card__title { font-family:var(--font-display); font-size:1.35rem; font-weight:700; color:#f5f5f0; }
-      /* card category — DM Sans, small label */
       .card__cat { font-family:var(--font-body); font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(245,245,240,0.65); margin-top:0.25rem; font-weight:400; }
 
       /* CARD SLIDER */
@@ -174,13 +177,10 @@
       .lightbox.is-open { opacity:1; visibility:visible; pointer-events:all; }
       .lightbox__inner { display:flex; gap:2.5rem; align-items:center; max-width:1100px; width:100%; }
       .lightbox__img-wrap { flex:1; display:flex; align-items:center; justify-content:center; }
-      .lightbox__img { max-height:82vh; max-width:100%; border-radius:8px; object-fit:contain; transition:opacity 0.2s; }
+      .lightbox__img { max-height:82vh; max-width:100%; border-radius:8px; object-fit:contain; transition:opacity 0.25s ease; }
       .lightbox__info { width:240px; flex-shrink:0; color:#f5f5f0; }
-      /* lightbox category — DM Sans */
       .lightbox__cat { font-family:var(--font-body); font-size:0.66rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(245,245,240,0.5); margin-bottom:0.5rem; }
-      /* lightbox title — Caveat, big display */
       .lightbox__title { font-family:var(--font-display); font-size:1.75rem; font-weight:700; margin-bottom:0.5rem; }
-      /* lightbox caption — DM Sans */
       .lightbox__cap { font-family:var(--font-body); font-size:0.88rem; color:rgba(245,245,240,0.6); font-weight:300; }
       .lightbox__slots { display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:1.2rem; }
       .lightbox__slot-btn { font-family:var(--font-body); font-size:0.62rem; letter-spacing:0.09em; text-transform:uppercase; padding:0.3rem 0.75rem; border-radius:999px; border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.55); cursor:pointer; transition:background 0.2s,color 0.2s,border-color 0.2s; font-weight:400; }
@@ -202,9 +202,7 @@
       .lbm__img-wrap { width:100vw; aspect-ratio:16/9; flex-shrink:0; overflow:hidden; position:relative; background:var(--bg-elevated); }
       .lbm__img { width:100%; height:100%; object-fit:cover; will-change:transform; transition:none; }
       .lbm__info { flex:1; padding:1.25rem 1.25rem 0.75rem; overflow:hidden; }
-      /* mobile title — Caveat display */
       .lbm__title { font-family:var(--font-display); font-size:1.4rem; font-weight:700; margin-bottom:0.35rem; }
-      /* mobile caption + category — DM Sans */
       .lbm__cap { font-family:var(--font-body); font-size:0.84rem; color:var(--text-muted); font-weight:300; }
       .lbm__cat { display:inline-block; margin-top:0.5rem; font-family:var(--font-body); font-size:0.64rem; letter-spacing:0.11em; text-transform:uppercase; border:1px solid var(--border); border-radius:999px; padding:0.2rem 0.65rem; color:var(--text-muted); font-weight:400; }
       .lbm__slots { display:flex; gap:0.4rem; flex-wrap:wrap; margin-top:0.75rem; }
@@ -219,19 +217,16 @@
       .about { background:radial-gradient(ellipse 80% 50% at 20% 80%,color-mix(in srgb,var(--text) 3%,transparent),transparent) var(--bg); }
       .about__grid { max-width:var(--max-w); margin:0 auto; display:grid; gap:3rem; align-items:center; }
       @media (min-width:768px) { .about__grid { grid-template-columns:1fr 1fr; } }
-      /* about body text — DM Sans, comfortable reading */
       .about__text p { font-family:var(--font-body); font-size:1.05rem; color:var(--text-muted); margin-bottom:1.2rem; font-weight:300; line-height:1.85; }
       .about__text p strong { font-weight:500; color:var(--text); }
       .about__tags { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:1.5rem; }
-      /* tags — DM Sans for readability */
       .tag { font-family:var(--font-body); padding:0.35rem 0.85rem; font-size:0.78rem; font-weight:400; border:1px solid var(--border); border-radius:999px; letter-spacing:0.03em; }
-      .about__img-wrap { border: radius 20px; overflow:hidden;  aspect-ratio:4/4; }
+      .about__img-wrap { border-radius:20px; overflow:hidden; aspect-ratio:4/4; }
       .about__img-wrap img { width:100%; height:100%; object-fit:cover; }
 
-      /* CONTACT — social links only */
+      /* CONTACT */
       .contact__wrap { max-width:520px; margin:0 auto; text-align:center; }
       .contact__wrap .section__underline { margin-inline:auto; }
-      /* sub text — DM Sans */
       .contact__sub { font-family:var(--font-body); color:var(--text-muted); font-weight:300; margin-bottom:2rem; font-size:1.05rem; line-height:1.75; }
       .social { display:flex; justify-content:center; gap:1.5rem; margin-top:1rem; flex-wrap:wrap; }
       .social a { display:flex; align-items:center; gap:0.5rem; font-family:var(--font-body); font-size:0.74rem; font-weight:500; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-muted); transition:color 0.3s,transform 0.25s; }
@@ -246,7 +241,6 @@
   </head>
   <body class="is-loading no-cursor">
     <a href="#main" class="skip-link">Skip to content</a>
-
     <div class="loader" id="loader" aria-hidden="true">
       <svg class="loader__svg" viewBox="0 0 72 72" aria-hidden="true"><circle class="loader__circle" cx="36" cy="36" r="34"/></svg>
       <span class="loader__text">ABCat Shop</span>
@@ -255,9 +249,7 @@
     <div class="cursor-dot"  id="cursor-dot"  aria-hidden="true"></div>
 
     <header class="nav" id="nav" role="banner">
-      <a href="#hero" class="nav__logo" aria-label="ABCat Shop home" data-hover>
-         <h1>KY</h1>
-      </a>
+      <a href="#hero" class="nav__logo" aria-label="ABCat Shop home" data-hover><h1>KY</h1></a>
       <nav class="nav__links" aria-label="Primary">
         <a href="#work" data-hover>Work</a>
         <a href="#about" data-hover>About</a>
@@ -335,7 +327,6 @@
         </div>
       </section>
 
-      <!-- CONTACT — social links only, no form -->
       <section class="section contact" id="contact" aria-labelledby="contact-title">
         <div class="contact__wrap reveal-block">
           <header class="section__head" style="text-align:center">
@@ -386,8 +377,8 @@
     <!-- MOBILE LIGHTBOX -->
     <div class="lightbox-mobile" id="lbm" role="dialog" aria-modal="true" aria-label="Artwork viewer">
       <div class="lbm__bar">
-  <button type="button" class="lbm__close" id="lbm-close" aria-label="Close">×</button>
-</div>
+        <button type="button" class="lbm__close" id="lbm-close" aria-label="Close">×</button>
+      </div>
       <div class="lbm__img-wrap" id="lbm-img-wrap">
         <img class="lbm__img" id="lbm-img" src="" alt=""/>
       </div>
@@ -488,12 +479,27 @@
         'https://images.unsplash.com/photo-1545249390-6bdfa286032f?w=700&q=80',
       ];
 
-      function bindImg(imgEl, src, fallbackIdx){
+      /* FIX 1: bindImg รับ mediaEl โดยตรง — แก้ปัญหา .closest() null เพราะ img ยังไม่ใน DOM */
+      function bindImg(imgEl, mediaEl, src, fallbackIdx){
         imgEl.loading = 'lazy';
-        imgEl.src = PLACEHOLDERS[fallbackIdx % PLACEHOLDERS.length];
+        imgEl.style.opacity = '0';
+        mediaEl.classList.add('is-loading-img');
+
         const real = new Image();
-        real.onload  = () => { imgEl.src = src; };
-        real.onerror = () => {};
+        real.onload = () => {
+          imgEl.src = src;
+          requestAnimationFrame(() => {
+            imgEl.style.opacity = '1';
+            mediaEl.classList.remove('is-loading-img');
+          });
+        };
+        real.onerror = () => {
+          imgEl.src = PLACEHOLDERS[fallbackIdx % PLACEHOLDERS.length];
+          requestAnimationFrame(() => {
+            imgEl.style.opacity = '1';
+            mediaEl.classList.remove('is-loading-img');
+          });
+        };
         real.src = src;
       }
 
@@ -515,7 +521,8 @@
 
         const imgEl = document.createElement('img');
         imgEl.alt = item.label;
-        bindImg(imgEl, visibleSlots[0].url, artIdx);
+        /* ส่ง media เข้าไปตรงๆ แทน .closest() */
+        bindImg(imgEl, media, visibleSlots[0].url, artIdx);
         media.appendChild(imgEl);
 
         const badge = document.createElement('span');
@@ -551,10 +558,29 @@
           });
         }
 
+        /* FIX 2: cancel token — แก้ race condition ตอนสลับรูปเร็วๆ */
+        let switchToken = 0;
+
         function switchSlot(idx){
           const slot = visibleSlots[idx];
+          const token = ++switchToken;
+
           imgEl.style.opacity = '0';
-          setTimeout(() => { imgEl.src = slot.url; badge.textContent = SLOT_LABELS[slot.key]; imgEl.style.opacity = '1'; }, 180);
+
+          /* preload ก่อน แล้วค่อย swap — ถ้ามี request ใหม่มาก่อนโหลดเสร็จ ให้ยกเลิก */
+          const real = new Image();
+          real.onload = () => {
+            if(token !== switchToken) return;
+            imgEl.src = slot.url;
+            badge.textContent = SLOT_LABELS[slot.key];
+            requestAnimationFrame(() => { imgEl.style.opacity = '1'; });
+          };
+          real.onerror = () => {
+            if(token !== switchToken) return;
+            imgEl.style.opacity = '1';
+          };
+          real.src = slot.url;
+
           media.querySelectorAll('.card__dot').forEach((d,di) => d.classList.toggle('is-active', di===idx));
         }
 
@@ -645,16 +671,32 @@
         });
       }
 
+      /* FIX 3: showLb — แก้ race condition เหมือน switchSlot ด้วย cancel token */
+      let lbToken = 0;
+
       function showLb(){
         const item = ARTWORK[LB.artIdx];
         const slot = LB.slots[LB.slotIdx];
-        lbImg.style.opacity='0';
-        setTimeout(()=>{ lbImg.src=slot.url; lbImg.style.opacity='1'; }, 150);
-        lbImg.alt        = item.label;
+        const token = ++lbToken;
+
+        lbImg.style.opacity = '0';
         lbTitle.textContent = item.label;
         lbCap.textContent   = SLOT_LABELS[slot.key];
         lbCat.textContent   = `${LB.slotIdx+1} / ${LB.slots.length}`;
+        lbImg.alt           = item.label;
         renderLbSlots();
+
+        const real = new Image();
+        real.onload = () => {
+          if(token !== lbToken) return;
+          lbImg.src = slot.url;
+          requestAnimationFrame(() => { lbImg.style.opacity = '1'; });
+        };
+        real.onerror = () => {
+          if(token !== lbToken) return;
+          lbImg.style.opacity = '1';
+        };
+        real.src = slot.url;
       }
 
       function openLb(){
