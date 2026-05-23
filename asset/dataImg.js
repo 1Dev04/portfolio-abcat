@@ -26,5 +26,12 @@ const dataSet = {
         clothing: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779518437/a5fb3952-e668-43f2-a54d-5684a58163db_1_fkk7wb.jpg",
         cat_clothing: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779518646/Gemini_Generated_Image_g0ga9bg0ga9bg0ga_zqrsxz_xrpn6k.jpg",
         cat_clothing_package: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779518648/7f13a047-f417-49a7-ae45-8e5030968a91_uxfc5l.jpg",
+    },
+    Images05: {
+        label: "[ABCat] Sweet Lolita Princess",
+        cat: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779527689/Gemini_Generated_Image_b09pvab09pvab09p_kjneeg_1_hhwkxq.jpg",
+        clothing: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779527689/Gemini_Generated_Image_dcz0mbdcz0mbdcz0_h6t1lv_1_omvlvc.jpg",
+        cat_clothing: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779527690/sweetlolita_d1pg8d_uberg3.jpg",
+        cat_clothing_package: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779527690/9c7aec8d-3bb8-44c7-ad33-544560eaf0f7_1_lgeiaq.jpg"
     }
 };
