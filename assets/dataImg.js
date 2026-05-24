@@ -33,5 +33,12 @@ const dataSet = {
         clothing: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779527689/Gemini_Generated_Image_dcz0mbdcz0mbdcz0_h6t1lv_1_omvlvc.jpg",
         cat_clothing: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779527690/sweetlolita_d1pg8d_uberg3.jpg",
         cat_clothing_package: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779527690/9c7aec8d-3bb8-44c7-ad33-544560eaf0f7_1_lgeiaq.jpg"
-    }
+    },
+    Images06: {
+        label: "[ABCat] Golden Fortune Dragon Set",
+        cat: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779619792/079dc66c-9b79-4021-ab5b-f4095aaece29_pcczuh.png",
+        clothing: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779620112/upscalemedia-transformed_4_gvkjck.jpg",
+        cat_clothing: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779619617/upscalemedia-transformed_4_xm67vs.jpg",
+        cat_clothing_package: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779619617/result_0_qgwr2m.jpg"
+     }
 };
