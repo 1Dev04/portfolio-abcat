@@ -25,7 +25,7 @@
       }
       html:not(.dark) {
         --bg: #f5f5f0; --bg-elevated: #ffffff; --card: #ffffff;
-        --text: #0d0d0d; --text-muted: #777777; --highlight: #000000;
+        --text: #777777; --text-muted: #777777; --highlight: #000000;
         --border: rgba(0,0,0,0.10);
         --shadow-glow: 0 0 0 1.5px rgba(0,0,0,0.15), 0 8px 40px rgba(0,0,0,0.10);
         --filter-fill: #0d0d0d; --filter-text: #f5f5f0;
@@ -278,6 +278,7 @@
       @media (min-width:768px) { .lightbox-mobile { display:none !important; } }
       @media (max-width:767px) { .lightbox { display:none !important; } }
     </style>
+
   </head>
   <body class="is-loading no-cursor">
     <a href="#main" class="skip-link">Skip to content</a>
@@ -430,7 +431,7 @@
       <div class="lbm__dots" id="lbm-dots" role="tablist" aria-label="Navigate artwork"></div>
     </div>
 
-    <script src="asset/dataImg.js"></script>
+    <script src="assets/dataImg.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -445,10 +446,16 @@
     (function () {
       'use strict';
 
+      // ─── [ตั้งค่ารูปภาพโลโก้ของคุณที่นี่] ───
+      const LOGO_SRC = '/assets/abc-img-preview.png'; 
+
       const TAU    = Math.PI * 2;
       const canvas = document.getElementById('holo-canvas');
       const ctx    = canvas.getContext('2d');
       const hero   = document.getElementById('hero');
+
+      let PARTICLES = [];
+      let isActive  = true;
 
       /* resize canvas to hero dimensions */
       function resize() {
@@ -458,143 +465,98 @@
       resize();
       window.addEventListener('resize', resize);
 
-      /* ── build particle point cloud from logo shape ── */
-      function buildParticles() {
+      /* ── ดึงพิกัดจุดโดยตรงจากพิกเซลของรูปภาพเพื่อให้เหมือน 100% ── */
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.src = LOGO_SRC;
+      img.onload = function () {
+        // สร้างแคนวาสจำลองขนาดเล็กเพื่อแกะพิกเซลข้อมูล
+        const sampleCanvas = document.createElement('canvas');
+        const sCtx = sampleCanvas.getContext('2d');
+        
+        // กำหนดความละเอียดการสแกน (ปรับขนาดตามความเหมาะสมของกลุ่มจุด)
+        const sampleW = 160; 
+        const sampleH = Math.round(sampleW * (img.height / img.width));
+        sampleCanvas.width = sampleW;
+        sampleCanvas.height = sampleH;
+        
+        // วาดเพื่อดึงข้อมูลพิกเซล
+        sCtx.drawImage(img, 0, 0, sampleW, sampleH);
+        const imgData = sCtx.getImageData(0, 0, sampleW, sampleH).data;
+
         const pts = [];
-        const S   = 108; /* global scale */
-
-        /* stroke a line as N evenly-spaced points */
-        function seg(x1, y1, x2, y2, n) {
-          for (let i = 0; i <= n; i++) {
-            const t = i / n;
-            pts.push([x1 + (x2 - x1) * t,  y1 + (y2 - y1) * t,  0]);
-          }
-        }
-        /* ellipse outline */
-        function ell(cx, cy, rx, ry, n) {
-          for (let i = 0; i < n; i++) {
-            const a = TAU * i / n;
-            pts.push([cx + Math.cos(a) * rx,  cy + Math.sin(a) * ry,  0]);
-          }
-        }
-        /* filled ellipse (random scatter) */
-        function fillEll(cx, cy, rx, ry, n) {
-          for (let i = 0; i < n; i++) {
-            const r = Math.sqrt(Math.random()), a = TAU * Math.random();
-            pts.push([cx + Math.cos(a) * rx * r,  cy + Math.sin(a) * ry * r,  (Math.random() - 0.5) * 5]);
+        // วิ่งวนสแกนหาจุดที่มีความเข้มข้นของสี (ไม่ใช้พื้นที่โปร่งแสง)
+        for (let y = 0; y < sampleH; y++) {
+          for (let x = 0; x < sampleW; x++) {
+            const idx = (y * sampleW + x) * 4;
+            const alpha = imgData[idx + 3];
+            
+            // ถ้าพิกเซลนั้นไม่โปร่งแสง (เป็นส่วนของเนื้อโลโก้) ให้แปลงเป็นจุด 3D
+            if (alpha > 120) {
+              // จัดตำแหน่งให้อยู่ตรงกลางแคนวาส [X, Y, Z]
+              const px = (x - sampleW / 2) * 1.8;
+              const py = (y - sampleH / 2) * 1.8;
+              pts.push([px, py, (Math.random() - 0.5) * 4]);
+            }
           }
         }
 
-        /* ── BASKET body ── */
-        const bx = -S * 0.55, by = -S * 0.12, bw = S * 1.1, bh = S * 0.58;
-        seg(bx + 12, by,       bx + bw - 12, by,        22);  /* top edge */
-        seg(bx + bw, by + 10,  bx + bw,      by + bh - 10, 16); /* right */
-        seg(bx + bw - 12, by + bh, bx + 12, by + bh,    22);  /* bottom */
-        seg(bx,      by + bh - 10, bx,       by + 10,    16); /* left */
-        /* crosshatch fill */
-        for (let r = 0; r < 9; r++) for (let c = 0; c < 15; c++)
-          pts.push([bx + 8 + c * (bw - 16) / 14 + (Math.random() - .5) * 4,
-                    by + 6 + r * (bh - 12) / 8  + (Math.random() - .5) * 4,
-                    (Math.random() - .5) * 5]);
-        /* diagonal lines */
-        for (let i = 0; i < 9; i++) for (let j = 0; j <= 13; j++)
-          pts.push([bx + j * (bw / 13),  by + i * (bh / 9) + j * (bh / 26),  (Math.random() - .5) * 3]);
-
-        /* ── CAT ── */
-        ell(S * 0.22, -S * 0.38, S * 0.28, S * 0.30, 40);
-        fillEll(S * 0.22, -S * 0.38, S * 0.22, S * 0.24, 65);
-        /* ears */
-        seg(S*.02,-S*.62, S*.10,-S*.48, 8); seg(S*.10,-S*.48, S*.18,-S*.62, 8); seg(S*.18,-S*.62, S*.02,-S*.62, 6);
-        seg(S*.26,-S*.64, S*.34,-S*.48, 8); seg(S*.34,-S*.48, S*.42,-S*.64, 8); seg(S*.42,-S*.64, S*.26,-S*.64, 6);
-        /* eyes */
-        ell(S*.10,-S*.38, S*.044,S*.037,12);  ell(S*.34,-S*.38, S*.044,S*.037,12);
-        /* nose + mouth */
-        pts.push([S*.22,-S*.29,0],[S*.19,-S*.265,0],[S*.25,-S*.265,0]);
-        seg(S*.22,-S*.29, S*.14,-S*.23, 5);  seg(S*.22,-S*.29, S*.30,-S*.23, 5);
-        /* whiskers */
-        seg(S*.22,-S*.29, -S*.10,-S*.27, 9); seg(S*.22,-S*.29, -S*.10,-S*.33, 9);
-        seg(S*.22,-S*.29,  S*.54,-S*.27, 9); seg(S*.22,-S*.29,  S*.54,-S*.33, 9);
-
-        /* ── "AB" text ── */
-        /* A */ seg(-S*.52,-S*.07,-S*.41,S*.32,15); seg(-S*.41,S*.32,-S*.30,-S*.07,15); seg(-S*.49,S*.14,-S*.33,S*.14,9);
-        /* B */ seg(-S*.26,-S*.07,-S*.26,S*.32,15);
-                seg(-S*.26,-S*.07,-S*.06,-S*.07,9); seg(-S*.06,-S*.07,-S*.02,S*.12,7); seg(-S*.02,S*.12,-S*.06,S*.32,7);
-                seg(-S*.06,S*.32,-S*.26,S*.32,9);   seg(-S*.26,S*.14,-S*.06,S*.14,9);
-
-        /* ── "Shop" text ── */
-        const ty = S*.55, ts = S*.42;
-        /* S */ seg(-S*.52,ty, -S*.52+ts*.9,ty, 11); seg(-S*.52,ty,-S*.52,ty+ts*.46,9);
-                seg(-S*.52,ty+ts*.46,-S*.52+ts*.9,ty+ts*.46,11);
-                seg(-S*.52+ts*.9,ty+ts*.46,-S*.52+ts*.9,ty+ts,9);
-                seg(-S*.52+ts*.9,ty+ts,-S*.52,ty+ts,11);
-        /* h */ const hx=-S*.52+ts*1.1;
-                seg(hx,ty-ts*.2,hx,ty+ts,13); seg(hx,ty+ts*.46,hx+ts*.85,ty+ts*.46,10);
-                seg(hx+ts*.85,ty+ts*.46,hx+ts*.85,ty+ts,9);
-        /* o */ const ox2=-S*.52+ts*2.15;
-                ell(ox2+ts*.42,ty+ts*.73,ts*.38,ts*.28,24);
-        /* p */ const px2=-S*.52+ts*3.2;
-                seg(px2,ty+ts*.46,px2,ty+ts*1.5,13);
-                seg(px2,ty+ts*.46,px2+ts*.85,ty+ts*.46,10);
-                seg(px2+ts*.85,ty+ts*.46,px2+ts*.85,ty+ts,9);
-                seg(px2+ts*.85,ty+ts,px2,ty+ts,10);
-
-        /* ── edge scatter / disintegration cloud ── */
-        for (let i = 0; i < 230; i++) {
-          const r  = (0.84 + Math.random() * 0.46) * S;
+        // เสริมฝุ่นละอองโฮโลแกรมสลัวๆ รอบตัวชิ้นงาน (Disintegration Cloud)
+        for (let i = 0; i < 150; i++) {
+          const r = (50 + Math.random() * 80);
           const th = Math.random() * TAU;
-          const ph = (Math.random() - 0.5) * 0.58;
-          pts.push([r * Math.cos(th) * Math.cos(ph),
-                    r * Math.sin(ph) * 1.55 + S * 0.1,
-                    r * Math.sin(th) * Math.cos(ph)]);
+          const ph = (Math.random() - 0.5) * 0.5;
+          pts.push([
+            r * Math.cos(th) * Math.cos(ph),
+            r * Math.sin(ph) * 1.2,
+            r * Math.sin(th) * Math.cos(ph)
+          ]);
         }
 
-        /* convert raw coords → particle objects */
-        return pts.map(([x, y, z]) => {
+        // แปลงพิกัดดิบให้กลายเป็นอ็อบเจกต์ Particle
+        PARTICLES = pts.map(([x, y, z]) => {
           const dist = Math.hypot(x, y, z);
           return {
             ox: x, oy: y, oz: z,
             life:    Math.random() * TAU,
-            speed:   0.007 + Math.random() * 0.017,
+            speed:   0.005 + Math.random() * 0.012,
             flicker: Math.random() * TAU,
-            edge:    dist > S * 0.76,
-            scatter: dist > S * 0.91,
+            // คำนวณสีเหลือบสไตล์ Iridescent (Cyan ไล่ไปม่วงพาสเทล) ตามตำแหน่งของภาพ
+            baseColor: (x - y) * 0.8
           };
         });
-      }
-
-      const PARTICLES = buildParticles();
+      };
 
       /* ── interaction state ── */
-      let rotX = 0.18, rotY = 0.0;
-      let tgtX = 0.18, tgtY = 0.0;
+      let rotX = 0.1, rotY = -0.1;
+      let tgtX = 0.1, tgtY = -0.1;
       let zoom = 1.0;
       let drag = false, lastMX = 0, lastMY = 0;
       let autoRot  = true;
-      let isActive = true; /* false when hero is off-screen */
       let autoRotTimeout = null;
 
-      /* drag on hero (canvas has pointer-events:none) */
-      hero.addEventListener('mousedown',  e => { drag = true;  lastMX = e.clientX; lastMY = e.clientY; autoRot = false; clearTimeout(autoRotTimeout); hero.classList.add('holo-drag'); });
-      window.addEventListener('mouseup',  ()  => { drag = false; hero.classList.remove('holo-drag'); autoRotTimeout = setTimeout(() => { autoRot = true; }, 2400); });
-      window.addEventListener('mousemove',e  => {
+      /* interaction events */
+      hero.addEventListener('mousedown',  e => { drag = true; lastMX = e.clientX; lastMY = e.clientY; autoRot = false; clearTimeout(autoRotTimeout); hero.classList.add('holo-drag'); });
+      window.addEventListener('mouseup',  ()  => { drag = false; hero.classList.remove('holo-drag'); autoRotTimeout = setTimeout(() => { autoRot = true; }, 2500); });
+      window.addEventListener('mousemove', e  => {
         if (!drag || !isActive) return;
-        tgtY += (e.clientX - lastMX) * 0.008;
-        tgtX += (e.clientY - lastMY) * 0.008;
+        tgtY += (e.clientX - lastMX) * 0.006;
+        tgtX += (e.clientY - lastMY) * 0.006;
         lastMX = e.clientX; lastMY = e.clientY;
       });
       hero.addEventListener('wheel', e => {
-        zoom = Math.max(0.38, Math.min(2.4, zoom - e.deltaY * 0.001));
+        zoom = Math.max(0.5, Math.min(2.0, zoom - e.deltaY * 0.001));
       }, { passive: true });
-      /* touch */
-      hero.addEventListener('touchstart', e => { drag = true;  lastMX = e.touches[0].clientX; lastMY = e.touches[0].clientY; autoRot = false; clearTimeout(autoRotTimeout); }, { passive: true });
-      window.addEventListener('touchend', ()  => { drag = false; autoRotTimeout = setTimeout(() => { autoRot = true; }, 2400); }, { passive: true });
-      window.addEventListener('touchmove', e => {
+
+      hero.addEventListener('touchstart', e => { drag = true; lastMX = e.touches[0].clientX; lastMY = e.touches[0].clientY; autoRot = false; clearTimeout(autoRotTimeout); }, { passive: true });
+      window.addEventListener('touchend', ()  => { drag = false; autoRotTimeout = setTimeout(() => { autoRot = true; }, 2500); }, { passive: true });
+      hero.addEventListener('touchmove', e => {
         if (!drag || !isActive) return;
-        tgtY += (e.touches[0].clientX - lastMX) * 0.011;
-        tgtX += (e.touches[0].clientY - lastMY) * 0.011;
+        tgtY += (e.touches[0].clientX - lastMX) * 0.008;
+        tgtX += (e.touches[0].clientY - lastMY) * 0.008;
         lastMX = e.touches[0].clientX; lastMY = e.touches[0].clientY;
       }, { passive: true });
-      /* pause when hero leaves viewport */
+
       if ('IntersectionObserver' in window) {
         new IntersectionObserver(entries => { isActive = entries[0].isIntersecting; }, { threshold: 0.05 }).observe(hero);
       }
@@ -609,22 +571,22 @@
       }
 
       /* ── render loop ── */
-      const FOV        = 560;
-      const BASE_SCALE = 0.0028;
-      let   t          = 0;
+      const FOV        = 500;
+      const BASE_SCALE = 0.0035;
 
       function draw() {
         requestAnimationFrame(draw);
-        if (!isActive) return;
+        if (!isActive || PARTICLES.length === 0) return;
 
-        t += 0.016;
-        if (autoRot) tgtY += 0.004;
-        rotX += (tgtX - rotX) * 0.055;
-        rotY += (tgtY - rotY) * 0.055;
+        if (autoRot) tgtY += 0.0025; // หมุนเอื่อยๆ หวานตา ชวนมอง
+        rotX += (tgtX - rotX) * 0.05;
+        rotY += (tgtY - rotY) * 0.05;
 
         const W = canvas.width, H = canvas.height;
         ctx.clearRect(0, 0, W, H);
-        ctx.fillStyle = '#000';
+        
+        // พื้นหลังสีดำสนิทเพื่อขับสีโฮโลแกรม
+        ctx.fillStyle = '#000000';
         ctx.fillRect(0, 0, W, H);
 
         const scale = Math.min(W, H) * BASE_SCALE * zoom;
@@ -634,58 +596,60 @@
           const p = PARTICLES[i];
           p.life += p.speed;
 
-          /* scatter drift at edges */
-          const sc = p.scatter ? (Math.sin(p.life + p.flicker) * 0.15 + 0.07)
-                   : p.edge    ? (Math.sin(p.life * 1.5 + p.flicker) * 0.05 + 0.02)
-                   : 0;
-
-          const px = p.ox * (1 + sc * 0.28);
-          const py = p.oy * (1 + sc * 0.15);
-          const pz = p.oz + Math.sin(p.life * 2.1 + p.flicker) * sc * 8;
+          // การสั่นไหวเล็กน้อย (Micro-flicker Effect) ให้ความรู้สึกเป็นโฮโลแกรมแสงจริง
+          const sc = Math.sin(p.life * 1.5 + p.flicker) * 0.03;
+          const px = p.ox * (1 + sc);
+          const py = p.oy * (1 + sc);
+          const pz = p.oz + Math.sin(p.life * 2.0) * 1.5;
 
           const [rx, ry, rz] = rotate(px, py, pz, rotX, rotY);
-          const d  = Math.max(0.15, FOV / (FOV + rz * scale * 3.5));
+          const d  = Math.max(0.15, FOV / (FOV + rz * scale * 3.0));
           const sx = W / 2 + rx * scale * d;
           const sy = H / 2 + ry * scale * d;
-          const depth = (rz + 200) / 400;
+          const depth = (rz + 150) / 300;
 
-          const fl    = 0.5 + 0.5 * Math.sin(p.life * 9 + p.flicker);
-          const alpha = p.scatter ? (0.18 + 0.55 * fl) : p.edge ? (0.38 + 0.46 * fl) : (0.52 + 0.38 * fl);
-          const size  = Math.max(0.2, p.scatter ? (0.5  + 1.1  * fl * d) : p.edge ? (0.7 + 0.9 * d) : (1.1 + 0.8 * d));
-          const cyan  = (i % 7) !== 0; /* ~85 % cyan, ~15 % electric blue */
+          // คำนวณความสว่างสลัวๆ นวลตา (Alpha) อิงตามความลึกและอนิเมชันกะพริบเบาๆ
+          const fl = 0.6 + 0.4 * Math.sin(p.life * 5 + p.flicker);
+          const alpha = (0.25 + 0.35 * fl) * (0.3 + 0.7 * d); 
+          const size = Math.max(0.4, (0.8 + 0.6 * d));
 
-          proj.push({ sx, sy, depth, alpha, size: Math.max(0.2, size), cyan, d });
+          proj.push({ sx, sy, depth, alpha, size, baseColor: p.baseColor, d });
         }
 
-        /* back-to-front depth sort */
+        /* จัดเรียงลำดับจุดจากหลังมาหน้า (Depth Sorting) */
         proj.sort((a, b) => a.depth - b.depth);
 
         for (const p of proj) {
-          const r = p.cyan ? 0                        : Math.round(20 + 80 * p.d);
-          const g = p.cyan ? Math.round(175 + 55*p.d) : Math.round(100 + 80 * p.d);
-          const b = p.cyan ? Math.round(215 + 40*p.d) : 255;
+          // ─── การไล่เฉดสี Cyan + Purple Iridescent (เหลือบสีสลัวๆ หวานตา) ───
+          // ใช้คลื่น Sine เปลี่ยนสีตามตำแหน่งพิกัดบวกความลึก ทำให้เกิดมิติแวววาวเวลาหมุน
+          const wave = Math.sin(p.baseColor * 0.03 + rotY * 1.5);
+          
+          // ผสมสูตรสี Cyan (0, 190, 220) ถึง ม่วง Iridescent (155, 110, 235)
+          const r = Math.round(75  + 80  * wave);
+          const g = Math.round(150 - 40  * wave + 40 * p.d);
+          const b = Math.round(225 + 30  * wave);
+
           const base = `rgba(${r},${g},${b},`;
 
-          /* core dot — clamp radius to prevent negative values */
-          const radius = Math.max(0.2, p.size);
+          // วาดจุดแกนหลัก
           ctx.beginPath();
-          ctx.arc(p.sx, p.sy, radius, 0, TAU);
+          ctx.arc(p.sx, p.sy, p.size, 0, TAU);
           ctx.fillStyle = base + p.alpha.toFixed(2) + ')';
           ctx.fill();
 
-          /* soft halo on bright dots */
-          if (radius > 1.1 && p.alpha > 0.44) {
+          // ทำแสงฟุ้ง (Halo Glow) เฉพาะจุดที่อยู่ด้านหน้าเพื่อไม่ให้ลายตาเกินไป
+          if (p.d > 1.0 && p.alpha > 0.4) {
             ctx.beginPath();
-            ctx.arc(p.sx, p.sy, radius * 3.2, 0, TAU);
-            ctx.fillStyle = base + (p.alpha * 0.09).toFixed(3) + ')';
+            ctx.arc(p.sx, p.sy, p.size * 2.5, 0, TAU);
+            ctx.fillStyle = base + (p.alpha * 0.06).toFixed(3) + ')';
             ctx.fill();
           }
         }
 
-        /* subtle centre bloom */
-        const grd = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, Math.min(W,H) * 0.4);
-        grd.addColorStop(0,   'rgba(0,200,255,0.05)');
-        grd.addColorStop(0.55,'rgba(0,80,220,0.03)');
+        /* Subtle Center Ambient Bloom (แสงเรืองจางๆ ตรงกลาง) */
+        const grd = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, Math.min(W,H) * 0.5);
+        grd.addColorStop(0,   'rgba(100,130,255,0.03)'); // อมม่วงฟ้านิดๆ หวานตา
+        grd.addColorStop(0.6, 'rgba(0,180,225,0.01)');
         grd.addColorStop(1,   'rgba(0,0,0,0)');
         ctx.fillStyle = grd;
         ctx.fillRect(0, 0, W, H);
@@ -693,6 +657,8 @@
 
       draw();
     })();
+    
+    
     </script>
 
     <!-- ═══════════════════════════════════════════════════
@@ -716,7 +682,7 @@
 
       const DOT_SVG = `<svg viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><ellipse cx="12" cy="15" rx="4" ry="5"/><ellipse cx="6.5" cy="10.5" rx="2.2" ry="2.8"/><ellipse cx="17.5" cy="10.5" rx="2.2" ry="2.8"/><ellipse cx="8.5" cy="6.5" rx="1.8" ry="2.2"/><ellipse cx="15.5" cy="6.5" rx="1.8" ry="2.2"/></svg>`;
 
-      const LOGO_URL       = 'https://res.cloudinary.com/dag73dhpl/image/upload/v1779371158/Screenshot_2026-05-21_160521_cvi0gg.jpg';
+      const LOGO_URL       = 'https://res.cloudinary.com/dag73dhpl/image/upload/v1779579245/image-removebg-preview_1_dt1vcg.png';
       const ITEMS_PER_PAGE = 9;
       const EASE           = 'power2.out';
       const DUR            = 0.6;
