@@ -40,5 +40,12 @@ const dataSet = {
         clothing: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779674582/6063108a-26a1-49bd-9f33-be9100e16d3d_ygl87h.jpg",
         cat_clothing: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779674356/upscalemedia-transformed_3_lgwtqc.jpg",
         cat_clothing_package: "https://res.cloudinary.com/dag73dhpl/image/upload/v1779674582/4c92b753-555e-4450-831a-69d3f6e3371d_iu371j.jpg"
-     }
+     },
+    Images07: {
+        label: "[ABCat] Santa Classic Knit Set",
+        cat: "https://res.cloudinary.com/dag73dhpl/image/upload/v1780048404/upscalemedia-transformed_5_zyygz9.jpg",
+        clothing: "https://res.cloudinary.com/dag73dhpl/image/upload/v1780048407/upscalemedia-transformed_6_jpmtv2.jpg",
+        cat_clothing: "https://res.cloudinary.com/dag73dhpl/image/upload/v1780048394/upscalemedia-transformed_7_tuzqmu.jpg",
+        cat_clothing_package: "https://res.cloudinary.com/dag73dhpl/image/upload/v1780048423/upscalemedia-transformed_4_prqfxh.jpg",
+    }
 };
