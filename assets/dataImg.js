@@ -47,5 +47,12 @@ const dataSet = {
         clothing: "https://res.cloudinary.com/dag73dhpl/image/upload/v1780048407/upscalemedia-transformed_6_jpmtv2.jpg",
         cat_clothing: "https://res.cloudinary.com/dag73dhpl/image/upload/v1780048394/upscalemedia-transformed_7_tuzqmu.jpg",
         cat_clothing_package: "https://res.cloudinary.com/dag73dhpl/image/upload/v1780048423/upscalemedia-transformed_4_prqfxh.jpg",
-    }
+    },
+     Images08: {
+        label: "[ABCat] Midnight Witch Kitten Set",
+        cat: "https://res.cloudinary.com/dag73dhpl/image/upload/v1780121940/Gemini_Generated_Image_n5jnr2n5jnr2n5jn_bytkwp_mltgyo.png",
+        clothing: "https://res.cloudinary.com/dag73dhpl/image/upload/v1780121930/Gemini_Generated_Image_xizy5cxizy5cxizy_c1vemu_d67zar.png",
+        cat_clothing: "https://res.cloudinary.com/dag73dhpl/image/upload/v1780121928/abcat_midnight_witch_kitten_set_iwby42.jpg",
+        cat_clothing_package: "https://res.cloudinary.com/dag73dhpl/image/upload/v1780119108/witch_gd0ico.jpg",
+    },
 };
